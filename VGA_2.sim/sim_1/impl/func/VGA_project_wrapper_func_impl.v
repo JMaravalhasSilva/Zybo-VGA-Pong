@@ -11,7 +11,7 @@
 // Device      : xc7z010clg400-1
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
-
+ 
 (* HW_HANDOFF = "VGA_project.hwdef" *) 
 module VGA_project
    (blue,
