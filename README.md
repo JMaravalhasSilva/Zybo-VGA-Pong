@@ -1,7 +1,7 @@
 # Zybo-VGA-Pong
 A verilog implementation of Pong using VGA on the Zynq-7000 Zybo FPGA board. 
 
-The project was done in Vivado 2017.2. Since the project uses Vivado's block creator, you're going to have to use vivado to edit this project. Please note that this was my first time using FPGAs and HDLs and I also had a very short time period to finish the project, so the code is a complete mess :)
+The project was done in Vivado 2017.2 and then updated to 2018.2. Since the project uses Vivado's block creator, you're going to have to use vivado to edit this project. Please note that this was my first time using FPGAs and HDLs and I also had a very short time period to finish the project, so the code is a complete mess :)
 
 If you just want the source code, it's in the VGA_2.srcs/sources_1/new. The VGA_output has a input clock of exactly 25MHz and produces a 640x480 output. It wil display whatever pixel it's in the "pixel_to_display" input at each positive edge of the clock. Each clock, the "current_pixel_index" output changes to the pixel that the module will output in the next clock edge. 
 While this project doesn't use RAM, one could easily create a "VRAM" that updates the pixel to display at each negative edge of that very same clock (this has been tested and confirmed to work).
