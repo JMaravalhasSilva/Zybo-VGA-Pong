@@ -1,8 +1,8 @@
-//Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+//Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
-//Tool Version: Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
-//Date        : Sun Nov 26 03:40:10 2017
-//Host        : Chi-PC running 64-bit Service Pack 1  (build 7601)
+//Tool Version: Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
+//Date        : Thu Jun 28 18:47:31 2018
+//Host        : chi-hp running 64-bit Ubuntu 16.04.4 LTS
 //Command     : generate_target VGA_project_wrapper.bd
 //Design      : VGA_project_wrapper
 //Purpose     : IP block netlist

@@ -20,7 +20,7 @@ set script_folder [_tcl::get_script_folder]
 ################################################################
 # Check if script is running in correct Vivado version.
 ################################################################
-set scripts_vivado_version 2017.2
+set scripts_vivado_version 2018.2
 set current_vivado_version [version -short]
 
 if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
@@ -55,6 +55,7 @@ if { $list_projs eq "" } {
 
 
 # CHANGE DESIGN NAME HERE
+variable design_name
 set design_name VGA_project
 
 # If you do not already have an existing IP Integrator design open,
@@ -133,6 +134,7 @@ if { $nRet != 0 } {
 proc create_root_design { parentCell } {
 
   variable script_folder
+  variable design_name
 
   if { $parentCell eq "" } {
      set parentCell [get_bd_cells /]
@@ -166,7 +168,7 @@ proc create_root_design { parentCell } {
   set button [ create_bd_port -dir I -from 1 -to 0 button ]
   set clk_in1 [ create_bd_port -dir I -type clk clk_in1 ]
   set_property -dict [ list \
-CONFIG.FREQ_HZ {125000000} \
+   CONFIG.FREQ_HZ {125000000} \
  ] $clk_in1
   set green [ create_bd_port -dir O -from 5 -to 0 green ]
   set hsync [ create_bd_port -dir O hsync ]
@@ -197,31 +199,31 @@ CONFIG.FREQ_HZ {125000000} \
    }
   
   # Create instance: clk_25MHz, and set properties
-  set clk_25MHz [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:5.4 clk_25MHz ]
+  set clk_25MHz [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_25MHz ]
   set_property -dict [ list \
-CONFIG.CLKIN1_JITTER_PS {80.0} \
-CONFIG.CLKOUT1_DRIVES {BUFG} \
-CONFIG.CLKOUT1_JITTER {345.102} \
-CONFIG.CLKOUT1_PHASE_ERROR {261.747} \
-CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {25.000} \
-CONFIG.CLKOUT2_DRIVES {BUFG} \
-CONFIG.CLKOUT3_DRIVES {BUFG} \
-CONFIG.CLKOUT4_DRIVES {BUFG} \
-CONFIG.CLKOUT5_DRIVES {BUFG} \
-CONFIG.CLKOUT6_DRIVES {BUFG} \
-CONFIG.CLKOUT7_DRIVES {BUFG} \
-CONFIG.MMCM_CLKFBOUT_MULT_F {33} \
-CONFIG.MMCM_CLKIN1_PERIOD {8.000} \
-CONFIG.MMCM_CLKIN2_PERIOD {10.0} \
-CONFIG.MMCM_CLKOUT0_DIVIDE_F {33} \
-CONFIG.MMCM_COMPENSATION {ZHOLD} \
-CONFIG.MMCM_DIVCLK_DIVIDE {5} \
-CONFIG.PRIMITIVE {PLL} \
-CONFIG.PRIM_IN_FREQ {125.000} \
-CONFIG.PRIM_SOURCE {No_buffer} \
-CONFIG.USE_FREQ_SYNTH {true} \
-CONFIG.USE_LOCKED {false} \
-CONFIG.USE_RESET {false} \
+   CONFIG.CLKIN1_JITTER_PS {80.0} \
+   CONFIG.CLKOUT1_DRIVES {BUFG} \
+   CONFIG.CLKOUT1_JITTER {345.102} \
+   CONFIG.CLKOUT1_PHASE_ERROR {261.747} \
+   CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {25.000} \
+   CONFIG.CLKOUT2_DRIVES {BUFG} \
+   CONFIG.CLKOUT3_DRIVES {BUFG} \
+   CONFIG.CLKOUT4_DRIVES {BUFG} \
+   CONFIG.CLKOUT5_DRIVES {BUFG} \
+   CONFIG.CLKOUT6_DRIVES {BUFG} \
+   CONFIG.CLKOUT7_DRIVES {BUFG} \
+   CONFIG.MMCM_CLKFBOUT_MULT_F {33} \
+   CONFIG.MMCM_CLKIN1_PERIOD {8.000} \
+   CONFIG.MMCM_CLKIN2_PERIOD {10.0} \
+   CONFIG.MMCM_CLKOUT0_DIVIDE_F {33} \
+   CONFIG.MMCM_COMPENSATION {ZHOLD} \
+   CONFIG.MMCM_DIVCLK_DIVIDE {5} \
+   CONFIG.PRIMITIVE {PLL} \
+   CONFIG.PRIM_IN_FREQ {125.000} \
+   CONFIG.PRIM_SOURCE {No_buffer} \
+   CONFIG.USE_FREQ_SYNTH {true} \
+   CONFIG.USE_LOCKED {false} \
+   CONFIG.USE_RESET {false} \
  ] $clk_25MHz
 
   # Create port connections

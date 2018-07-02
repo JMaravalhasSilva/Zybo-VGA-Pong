@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2017 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2018 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -52,6 +52,7 @@
 
 `timescale 1ns/1ps
 
+(* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module VGA_project_VGA_output_0_0 (
   pixel_clk,
@@ -65,6 +66,7 @@ module VGA_project_VGA_output_0_0 (
   outside_display_area
 );
 
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME pixel_clk, FREQ_HZ 25000000, PHASE 0.0, CLK_DOMAIN VGA_project_clk_in1" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 pixel_clk CLK" *)
 input wire pixel_clk;
 input wire [5 : 0] pixel_to_display;

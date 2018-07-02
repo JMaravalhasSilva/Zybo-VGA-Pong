@@ -176,6 +176,7 @@ module Game_controller(
                         pixel_to_display <= cpu_score_color;
                     end
                 end else if (cpu_score >= 10) begin
+                    //Draw a "W" (winner)
                     if((x > (score_x-(score_width/2)+4)) && (x <= (score_x-2)) && (y<=(score_cpu_y+(score_width/2)-4))) begin
                         pixel_to_display <= background_color;
                     end else if((x <= (score_x+(score_width/2)-4)) && (x > (score_x+2)) && (y<=(score_cpu_y+(score_width/2)-4))) begin
@@ -183,9 +184,6 @@ module Game_controller(
                     end else begin
                         pixel_to_display <= cpu_score_color;
                     end
-                    
-                    //Error
-                    //pixel_to_display <= cpu_score_color;
                 end
             end else if(x>(score_x-(score_width/2)) && x<=(score_x+(score_width/2)) 
                         && y<=(score_player_y+(score_width/2)) && y>(score_player_y-(score_width/2))) begin
@@ -288,9 +286,10 @@ module Game_controller(
                         pixel_to_display <= player_score_color;
                     end
                 end else if (player_score >= 10) begin
-                    if((x > (score_x-(score_width/2)+4)) && (x <= (score_x-2)) && (y<=(score_cpu_y+(score_width/2)-4))) begin
+                    //Draw a "W" (winner)
+                    if((x > (score_x-(score_width/2)+4)) && (x <= (score_x-2)) && (y<=(score_player_y+(score_width/2)-4))) begin
                         pixel_to_display <= background_color;
-                    end else if((x <= (score_x+(score_width/2)-4)) && (x > (score_x+2)) && (y<=(score_cpu_y+(score_width/2)-4))) begin
+                    end else if((x <= (score_x+(score_width/2)-4)) && (x > (score_x+2)) && (y<=(score_player_y+(score_width/2)-4))) begin
                         pixel_to_display <= background_color;
                     end else begin
                         pixel_to_display <= player_score_color;
@@ -320,10 +319,8 @@ module Game_controller(
                     //Player paddle speed
                     if((button[0] == 1) && (button[1] == 0)) begin
                         player_paddle_speed <= player_paddle_speed + 10;
-                        //cpu_paddle_speed <= cpu_paddle_speed + 10;
                     end else if((button[1] == 1) && (button[0] == 0)) begin
                         player_paddle_speed <= player_paddle_speed - 10;
-                        //cpu_paddle_speed <= cpu_paddle_speed - 10;
                     end else if((button[0] == 0) && (button[1] == 0)) begin
                         //Brake paddle 
                         if( ((player_paddle_speed > 0) && (player_paddle_speed <= 10)) || ((player_paddle_speed < 0) && (player_paddle_speed >= (-10))) ) begin
@@ -464,6 +461,6 @@ module Game_controller(
                 end
                 state <= s_waiting;
             end
-        end  
+        end
     end
 endmodule

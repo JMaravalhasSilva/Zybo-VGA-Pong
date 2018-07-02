@@ -1,4 +1,4 @@
-// (c) Copyright 1995-2017 Xilinx, Inc. All rights reserved.
+// (c) Copyright 1995-2018 Xilinx, Inc. All rights reserved.
 // 
 // This file contains confidential and proprietary information
 // of Xilinx, Inc. and is protected under U.S. and
@@ -50,9 +50,10 @@
 // IP VLNV: xilinx.com:module_ref:VGA_output:1.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "VGA_output,Vivado 2017.2" *)
+(* X_CORE_INFO = "VGA_output,Vivado 2018.2" *)
 (* CHECK_LICENSE_TYPE = "VGA_project_VGA_output_0_0,VGA_output,{}" *)
-(* CORE_GENERATION_INFO = "VGA_project_VGA_output_0_0,VGA_output,{x_ipProduct=Vivado 2017.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=VGA_output,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,H_PULSE_WIDTH=96,H_BACK_PORCH=48,H_DISP_TIME=640,H_PERIOD=800,V_PULSE_WIDTH=2,V_BACK_PORCH=29,V_DISP_TIME=480,V_PERIOD=521}" *)
+(* CORE_GENERATION_INFO = "VGA_project_VGA_output_0_0,VGA_output,{x_ipProduct=Vivado 2018.2,x_ipVendor=xilinx.com,x_ipLibrary=module_ref,x_ipName=VGA_output,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,H_PULSE_WIDTH=96,H_BACK_PORCH=48,H_DISP_TIME=640,H_PERIOD=800,V_PULSE_WIDTH=2,V_BACK_PORCH=29,V_DISP_TIME=480,V_PERIOD=521}" *)
+(* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module VGA_project_VGA_output_0_0 (
   pixel_clk,
@@ -66,6 +67,7 @@ module VGA_project_VGA_output_0_0 (
   outside_display_area
 );
 
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME pixel_clk, FREQ_HZ 25000000, PHASE 0.0, CLK_DOMAIN VGA_project_clk_in1" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 pixel_clk CLK" *)
 input wire pixel_clk;
 input wire [5 : 0] pixel_to_display;

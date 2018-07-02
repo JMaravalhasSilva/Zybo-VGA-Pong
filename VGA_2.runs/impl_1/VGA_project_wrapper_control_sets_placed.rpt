@@ -1,0 +1,87 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
+| Date         : Thu Jun 28 18:51:16 2018
+| Host         : chi-hp running 64-bit Ubuntu 16.04.4 LTS
+| Command      : report_control_sets -verbose -file VGA_project_wrapper_control_sets_placed.rpt
+| Design       : VGA_project_wrapper
+| Device       : xc7z010
+------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    20 |
+| Unused register locations in slices containing registers |    50 |
++----------------------------------------------------------+-------+
+
+
+2. Histogram
+------------
+
++--------+--------------+
+| Fanout | Control Sets |
++--------+--------------+
+|      8 |            2 |
+|     10 |            2 |
+|     12 |            1 |
+|    16+ |           15 |
++--------+--------------+
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              44 |           13 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              82 |           13 |
+| Yes          | No                    | No                     |             108 |           23 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |             556 |          107 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------------------------------+----------------------------------------------------------------------+----------------------------------------------------------------------+------------------+----------------+
+|              Clock Signal              |                             Enable Signal                            |                           Set/Reset Signal                           | Slice Load Count | Bel Load Count |
++----------------------------------------+----------------------------------------------------------------------+----------------------------------------------------------------------+------------------+----------------+
+| ~VGA_project_i/clk_25MHz/inst/clk_out1 | VGA_project_i/Game_controller_0/inst/player_paddle[12]_i_1_n_0       |                                                                      |                2 |              8 |
+| ~VGA_project_i/clk_25MHz/inst/clk_out1 | VGA_project_i/Game_controller_0/inst/cpu_paddle[12]_i_1_n_0          |                                                                      |                1 |              8 |
+| ~VGA_project_i/clk_25MHz/inst/clk_out1 | VGA_project_i/Game_controller_0/inst/pixel_to_display[5]_i_1_n_0     |                                                                      |                3 |             10 |
+| ~VGA_project_i/clk_25MHz/inst/clk_out1 | VGA_project_i/Game_controller_0/inst/cpu_score[4]_i_2_n_0            | VGA_project_i/Game_controller_0/inst/cpu_score[4]_i_1_n_0            |                2 |             10 |
+| ~VGA_project_i/clk_25MHz/inst/clk_out1 | VGA_project_i/Game_controller_0/inst/ball_y_speed[6]_i_1_n_0         |                                                                      |                4 |             12 |
+| ~VGA_project_i/clk_25MHz/inst/clk_out1 | VGA_project_i/Game_controller_0/inst/player_score[7]_i_2_n_0         | VGA_project_i/Game_controller_0/inst/player_score[7]_i_1_n_0         |                6 |             16 |
+| ~VGA_project_i/clk_25MHz/inst/clk_out1 |                                                                      |                                                                      |                5 |             18 |
+|  VGA_project_i/clk_25MHz/inst/clk_out1 |                                                                      | VGA_project_i/VGA_output/inst/red[4]_i_1_n_0                         |                5 |             20 |
+|  VGA_project_i/clk_25MHz/inst/clk_out1 |                                                                      |                                                                      |                8 |             26 |
+|  VGA_project_i/clk_25MHz/inst/clk_out1 | VGA_project_i/VGA_output/inst/current_pixel_index[18]_i_2_n_0        | VGA_project_i/VGA_output/inst/current_pixel_index[18]_i_1_n_0        |                5 |             38 |
+| ~VGA_project_i/clk_25MHz/inst/clk_out1 | VGA_project_i/Game_controller_0/inst/ball_y_speed[6]_i_1_n_0         | VGA_project_i/Game_controller_0/inst/ball_y_speed[31]_i_1_n_0        |               10 |             52 |
+| ~VGA_project_i/clk_25MHz/inst/clk_out1 | VGA_project_i/Game_controller_0/inst/ball_x_speed[31]_i_2_n_0        | VGA_project_i/Game_controller_0/inst/ball_x_speed[31]_i_1_n_0        |               21 |             58 |
+|  VGA_project_i/clk_25MHz/inst/clk_out1 | VGA_project_i/VGA_output/inst/vertical_counter[31]_i_2_n_0           | VGA_project_i/VGA_output/inst/vertical_counter[31]_i_1_n_0           |                8 |             62 |
+|  VGA_project_i/clk_25MHz/inst/clk_out1 |                                                                      | VGA_project_i/VGA_output/inst/horizontal_counter[31]_i_1_n_0         |                8 |             62 |
+| ~VGA_project_i/clk_25MHz/inst/clk_out1 | VGA_project_i/Game_controller_0/inst/cpu_paddle[12]_i_1_n_0          | VGA_project_i/Game_controller_0/inst/cpu_paddle[31]_i_1_n_0          |                7 |             64 |
+| ~VGA_project_i/clk_25MHz/inst/clk_out1 | VGA_project_i/Game_controller_0/inst/ball_y[31]_i_2_n_0              | VGA_project_i/Game_controller_0/inst/ball_y[31]_i_1_n_0              |               15 |             64 |
+| ~VGA_project_i/clk_25MHz/inst/clk_out1 | VGA_project_i/Game_controller_0/inst/cpu_paddle_speed[31]_i_2_n_0    | VGA_project_i/Game_controller_0/inst/cpu_paddle_speed[31]_i_1_n_0    |                6 |             64 |
+| ~VGA_project_i/clk_25MHz/inst/clk_out1 | VGA_project_i/Game_controller_0/inst/player_paddle[12]_i_1_n_0       | VGA_project_i/Game_controller_0/inst/player_paddle[31]_i_1_n_0       |               10 |             64 |
+| ~VGA_project_i/clk_25MHz/inst/clk_out1 | VGA_project_i/Game_controller_0/inst/player_paddle_speed[31]_i_2_n_0 | VGA_project_i/Game_controller_0/inst/player_paddle_speed[31]_i_1_n_0 |               17 |             64 |
+| ~VGA_project_i/clk_25MHz/inst/clk_out1 | VGA_project_i/Game_controller_0/inst/ball_x[31]_i_1_n_0              |                                                                      |               13 |             70 |
++----------------------------------------+----------------------------------------------------------------------+----------------------------------------------------------------------+------------------+----------------+
+
+

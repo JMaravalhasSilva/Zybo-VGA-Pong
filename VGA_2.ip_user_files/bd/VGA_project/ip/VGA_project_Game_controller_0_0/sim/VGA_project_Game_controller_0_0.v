@@ -58,7 +58,8 @@ module VGA_project_Game_controller_0_0 (
   pixel_to_display,
   current_pixel_index,
   outside_display_area,
-  button
+  button,
+  reset_button
 );
 
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 pixel_clk CLK" *)
@@ -67,21 +68,38 @@ output wire [5 : 0] pixel_to_display;
 input wire [18 : 0] current_pixel_index;
 input wire outside_display_area;
 input wire [1 : 0] button;
+(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 reset_button RST" *)
+input wire reset_button;
 
   Game_controller #(
-    .speed_limit(10),
+    .speed_limit(100),
+    .ball_y_speed_limit(90),
     .paddle_width(30),
-    .paddle_height(5),
+    .paddle_height(4),
     .ball_r(4),
+    .score_x(30),
+    .score_player_y(280),
+    .score_cpu_y(200),
+    .score_width(20),
     .s_waiting(0),
     .s_ready(1),
     .s_speed_limiting(2),
-    .s_position_calculation(3)
+    .s_position_calculation(3),
+    .s_ball_collision_1(4),
+    .s_ball_collision_2(5),
+    .background_color(6'B000001),
+    .cpu_score_color(6'B110000),
+    .player_score_color(6'B001100),
+    .border_color(6'B001000),
+    .cpu_paddle_color(6'B111111),
+    .player_paddle_color(6'B111111),
+    .ball_color(6'B111111)
   ) inst (
     .pixel_clk(pixel_clk),
     .pixel_to_display(pixel_to_display),
     .current_pixel_index(current_pixel_index),
     .outside_display_area(outside_display_area),
-    .button(button)
+    .button(button),
+    .reset_button(reset_button)
   );
 endmodule

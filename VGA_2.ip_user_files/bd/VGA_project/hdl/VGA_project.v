@@ -1,8 +1,8 @@
 //Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
-//Date        : Wed Nov 22 19:05:15 2017
-//Host        : DESKTOP-CVA3NCD running 64-bit major release  (build 9200)
+//Date        : Sun Nov 26 03:40:10 2017
+//Host        : Chi-PC running 64-bit Service Pack 1  (build 7601)
 //Command     : generate_target VGA_project.bd
 //Design      : VGA_project
 //Purpose     : IP block netlist
@@ -17,6 +17,7 @@ module VGA_project
     green,
     hsync,
     red,
+    reset_button,
     vsync);
   output [4:0]blue;
   input [1:0]button;
@@ -24,6 +25,7 @@ module VGA_project
   output [5:0]green;
   output hsync;
   output [4:0]red;
+  input reset_button;
   output vsync;
 
   wire [5:0]Game_controller_0_pixel_to_display;
@@ -37,6 +39,7 @@ module VGA_project
   wire [1:0]button_1;
   wire clk_in1_1;
   wire clk_wiz_0_clk_out1;
+  wire reset_button_1;
 
   assign blue[4:0] = VGA_output_0_blue;
   assign button_1 = button[1:0];
@@ -44,13 +47,15 @@ module VGA_project
   assign green[5:0] = VGA_output_0_green;
   assign hsync = VGA_output_0_hsync;
   assign red[4:0] = VGA_output_0_red;
+  assign reset_button_1 = reset_button;
   assign vsync = VGA_output_0_vsync;
   VGA_project_Game_controller_0_0 Game_controller_0
        (.button(button_1),
         .current_pixel_index(VGA_output_current_pixel_index),
         .outside_display_area(VGA_output_outside_display_area),
         .pixel_clk(clk_wiz_0_clk_out1),
-        .pixel_to_display(Game_controller_0_pixel_to_display));
+        .pixel_to_display(Game_controller_0_pixel_to_display),
+        .reset_button(reset_button_1));
   VGA_project_VGA_output_0_0 VGA_output
        (.blue(VGA_output_0_blue),
         .current_pixel_index(VGA_output_current_pixel_index),

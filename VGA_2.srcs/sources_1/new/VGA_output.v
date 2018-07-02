@@ -51,7 +51,7 @@ module VGA_output(
         end else if (vertical_counter == V_PULSE_WIDTH) begin
             vsync <= 0;
         end else if (vertical_counter == (V_PULSE_WIDTH + V_BACK_PORCH)) begin
-            //Note: Thisdoesn't need the same trick as the "display_now_horizontal", since
+            //Note: This doesn't need the same trick as the "display_now_horizontal", since
             //"display_now_vertical" always changes long before or after changes in "display_now_horizontal"
             display_now_vertical <= 1;
             outside_display_area <= 0;
@@ -61,10 +61,6 @@ module VGA_output(
         end
         
         //Pixel display logic
-        
-        //Note: current_pixel_val is always latched from ram at each pixel clock 
-        //so that the frame buffer only needs to update all of the RAM 1 pixel clock
-        //before the current frame is displayed on screen
         
         pixel_red[1] = pixel_to_display[5];
         pixel_red[0] = pixel_to_display[4];
@@ -123,9 +119,5 @@ module VGA_output(
         end
         
     end
-    
-    //assign vdisp = display_now_vertical;
-    //assign hdisp = display_now_horizontal;
-    //assign pixel_counter = current_pixel;
     
 endmodule

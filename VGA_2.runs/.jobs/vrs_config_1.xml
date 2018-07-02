@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="VGA_project_VGA_output_0_0_synth_1" LaunchDir="/home/chi/Desktop/Zybo-VGA-Pong-master/VGA_2.runs/VGA_project_VGA_output_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="VGA_project_Game_controller_0_0_synth_1" LaunchDir="/home/chi/Desktop/Zybo-VGA-Pong-master/VGA_2.runs/VGA_project_Game_controller_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="VGA_project_clk_wiz_0_0_synth_1" LaunchDir="/home/chi/Desktop/Zybo-VGA-Pong-master/VGA_2.runs/VGA_project_clk_wiz_0_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+</Runs>
+

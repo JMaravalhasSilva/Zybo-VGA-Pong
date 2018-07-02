@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Thu Jun 28 16:01:05 2018
+# Process ID: 5267
+# Current directory: /home/chi/Desktop/Zybo-VGA-Pong-master/VGA_2.runs/impl_1
+# Command line: vivado -log VGA_project_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source VGA_project_wrapper.tcl -notrace
+# Log file: /home/chi/Desktop/Zybo-VGA-Pong-master/VGA_2.runs/impl_1/VGA_project_wrapper.vdi
+# Journal file: /home/chi/Desktop/Zybo-VGA-Pong-master/VGA_2.runs/impl_1/vivado.jou
+#-----------------------------------------------------------
+source VGA_project_wrapper.tcl -notrace

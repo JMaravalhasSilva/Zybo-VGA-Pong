@@ -1,10 +1,10 @@
--- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+-- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2017.2 (win64) Build 1909853 Thu Jun 15 18:39:09 MDT 2017
--- Date        : Mon Nov 20 16:38:17 2017
--- Host        : Chi-PC running 64-bit Service Pack 1  (build 7601)
+-- Tool Version: Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
+-- Date        : Thu Jun 28 18:48:40 2018
+-- Host        : chi-hp running 64-bit Ubuntu 16.04.4 LTS
 -- Command     : write_vhdl -force -mode funcsim
---               C:/Users/Chi/Desktop/VGA_3/VGA_2.srcs/sources_1/bd/VGA_project/ip/VGA_project_VGA_output_0_0/VGA_project_VGA_output_0_0_sim_netlist.vhdl
+--               /home/chi/Desktop/Zybo-VGA-Pong-master/VGA_2.srcs/sources_1/bd/VGA_project/ip/VGA_project_VGA_output_0_0/VGA_project_VGA_output_0_0_sim_netlist.vhdl
 -- Design      : VGA_project_VGA_output_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -16,13 +16,13 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity VGA_project_VGA_output_0_0_VGA_output is
   port (
-    current_pixel_index : out STD_LOGIC_VECTOR ( 18 downto 0 );
     red : out STD_LOGIC_VECTOR ( 1 downto 0 );
     green : out STD_LOGIC_VECTOR ( 2 downto 0 );
     blue : out STD_LOGIC_VECTOR ( 1 downto 0 );
+    current_pixel_index : out STD_LOGIC_VECTOR ( 18 downto 0 );
     vsync : out STD_LOGIC;
-    hsync : out STD_LOGIC;
     outside_display_area : out STD_LOGIC;
+    hsync : out STD_LOGIC;
     pixel_clk : in STD_LOGIC;
     pixel_to_display : in STD_LOGIC_VECTOR ( 5 downto 0 )
   );
@@ -32,16 +32,11 @@ end VGA_project_VGA_output_0_0_VGA_output;
 
 architecture STRUCTURE of VGA_project_VGA_output_0_0_VGA_output is
   signal \^current_pixel_index\ : STD_LOGIC_VECTOR ( 18 downto 0 );
-  signal \current_pixel_index[11]_i_2_n_0\ : STD_LOGIC;
-  signal \current_pixel_index[11]_i_3_n_0\ : STD_LOGIC;
-  signal \current_pixel_index[11]_i_4_n_0\ : STD_LOGIC;
-  signal \current_pixel_index[11]_i_5_n_0\ : STD_LOGIC;
-  signal \current_pixel_index[15]_i_2_n_0\ : STD_LOGIC;
-  signal \current_pixel_index[15]_i_3_n_0\ : STD_LOGIC;
-  signal \current_pixel_index[15]_i_4_n_0\ : STD_LOGIC;
-  signal \current_pixel_index[15]_i_5_n_0\ : STD_LOGIC;
   signal \current_pixel_index[18]_i_10_n_0\ : STD_LOGIC;
   signal \current_pixel_index[18]_i_11_n_0\ : STD_LOGIC;
+  signal \current_pixel_index[18]_i_12_n_0\ : STD_LOGIC;
+  signal \current_pixel_index[18]_i_13_n_0\ : STD_LOGIC;
+  signal \current_pixel_index[18]_i_14_n_0\ : STD_LOGIC;
   signal \current_pixel_index[18]_i_1_n_0\ : STD_LOGIC;
   signal \current_pixel_index[18]_i_2_n_0\ : STD_LOGIC;
   signal \current_pixel_index[18]_i_4_n_0\ : STD_LOGIC;
@@ -51,13 +46,6 @@ architecture STRUCTURE of VGA_project_VGA_output_0_0_VGA_output is
   signal \current_pixel_index[18]_i_8_n_0\ : STD_LOGIC;
   signal \current_pixel_index[18]_i_9_n_0\ : STD_LOGIC;
   signal \current_pixel_index[3]_i_2_n_0\ : STD_LOGIC;
-  signal \current_pixel_index[3]_i_3_n_0\ : STD_LOGIC;
-  signal \current_pixel_index[3]_i_4_n_0\ : STD_LOGIC;
-  signal \current_pixel_index[3]_i_5_n_0\ : STD_LOGIC;
-  signal \current_pixel_index[7]_i_2_n_0\ : STD_LOGIC;
-  signal \current_pixel_index[7]_i_3_n_0\ : STD_LOGIC;
-  signal \current_pixel_index[7]_i_4_n_0\ : STD_LOGIC;
-  signal \current_pixel_index[7]_i_5_n_0\ : STD_LOGIC;
   signal \current_pixel_index_reg[11]_i_1_n_0\ : STD_LOGIC;
   signal \current_pixel_index_reg[11]_i_1_n_1\ : STD_LOGIC;
   signal \current_pixel_index_reg[11]_i_1_n_2\ : STD_LOGIC;
@@ -103,67 +91,37 @@ architecture STRUCTURE of VGA_project_VGA_output_0_0_VGA_output is
   signal display_now_horizontal_i_4_n_0 : STD_LOGIC;
   signal display_now_horizontal_i_5_n_0 : STD_LOGIC;
   signal display_now_horizontal_i_6_n_0 : STD_LOGIC;
+  signal display_now_horizontal_i_7_n_0 : STD_LOGIC;
   signal display_now_vertical : STD_LOGIC;
   signal display_now_vertical_i_1_n_0 : STD_LOGIC;
   signal green_0 : STD_LOGIC_VECTOR ( 5 downto 0 );
   signal horizontal_counter : STD_LOGIC_VECTOR ( 31 downto 0 );
-  signal \horizontal_counter0_carry__0_i_1_n_0\ : STD_LOGIC;
-  signal \horizontal_counter0_carry__0_i_2_n_0\ : STD_LOGIC;
-  signal \horizontal_counter0_carry__0_i_3_n_0\ : STD_LOGIC;
-  signal \horizontal_counter0_carry__0_i_4_n_0\ : STD_LOGIC;
   signal \horizontal_counter0_carry__0_n_0\ : STD_LOGIC;
   signal \horizontal_counter0_carry__0_n_1\ : STD_LOGIC;
   signal \horizontal_counter0_carry__0_n_2\ : STD_LOGIC;
   signal \horizontal_counter0_carry__0_n_3\ : STD_LOGIC;
-  signal \horizontal_counter0_carry__1_i_1_n_0\ : STD_LOGIC;
-  signal \horizontal_counter0_carry__1_i_2_n_0\ : STD_LOGIC;
-  signal \horizontal_counter0_carry__1_i_3_n_0\ : STD_LOGIC;
-  signal \horizontal_counter0_carry__1_i_4_n_0\ : STD_LOGIC;
   signal \horizontal_counter0_carry__1_n_0\ : STD_LOGIC;
   signal \horizontal_counter0_carry__1_n_1\ : STD_LOGIC;
   signal \horizontal_counter0_carry__1_n_2\ : STD_LOGIC;
   signal \horizontal_counter0_carry__1_n_3\ : STD_LOGIC;
-  signal \horizontal_counter0_carry__2_i_1_n_0\ : STD_LOGIC;
-  signal \horizontal_counter0_carry__2_i_2_n_0\ : STD_LOGIC;
-  signal \horizontal_counter0_carry__2_i_3_n_0\ : STD_LOGIC;
-  signal \horizontal_counter0_carry__2_i_4_n_0\ : STD_LOGIC;
   signal \horizontal_counter0_carry__2_n_0\ : STD_LOGIC;
   signal \horizontal_counter0_carry__2_n_1\ : STD_LOGIC;
   signal \horizontal_counter0_carry__2_n_2\ : STD_LOGIC;
   signal \horizontal_counter0_carry__2_n_3\ : STD_LOGIC;
-  signal \horizontal_counter0_carry__3_i_1_n_0\ : STD_LOGIC;
-  signal \horizontal_counter0_carry__3_i_2_n_0\ : STD_LOGIC;
-  signal \horizontal_counter0_carry__3_i_3_n_0\ : STD_LOGIC;
-  signal \horizontal_counter0_carry__3_i_4_n_0\ : STD_LOGIC;
   signal \horizontal_counter0_carry__3_n_0\ : STD_LOGIC;
   signal \horizontal_counter0_carry__3_n_1\ : STD_LOGIC;
   signal \horizontal_counter0_carry__3_n_2\ : STD_LOGIC;
   signal \horizontal_counter0_carry__3_n_3\ : STD_LOGIC;
-  signal \horizontal_counter0_carry__4_i_1_n_0\ : STD_LOGIC;
-  signal \horizontal_counter0_carry__4_i_2_n_0\ : STD_LOGIC;
-  signal \horizontal_counter0_carry__4_i_3_n_0\ : STD_LOGIC;
-  signal \horizontal_counter0_carry__4_i_4_n_0\ : STD_LOGIC;
   signal \horizontal_counter0_carry__4_n_0\ : STD_LOGIC;
   signal \horizontal_counter0_carry__4_n_1\ : STD_LOGIC;
   signal \horizontal_counter0_carry__4_n_2\ : STD_LOGIC;
   signal \horizontal_counter0_carry__4_n_3\ : STD_LOGIC;
-  signal \horizontal_counter0_carry__5_i_1_n_0\ : STD_LOGIC;
-  signal \horizontal_counter0_carry__5_i_2_n_0\ : STD_LOGIC;
-  signal \horizontal_counter0_carry__5_i_3_n_0\ : STD_LOGIC;
-  signal \horizontal_counter0_carry__5_i_4_n_0\ : STD_LOGIC;
   signal \horizontal_counter0_carry__5_n_0\ : STD_LOGIC;
   signal \horizontal_counter0_carry__5_n_1\ : STD_LOGIC;
   signal \horizontal_counter0_carry__5_n_2\ : STD_LOGIC;
   signal \horizontal_counter0_carry__5_n_3\ : STD_LOGIC;
-  signal \horizontal_counter0_carry__6_i_1_n_0\ : STD_LOGIC;
-  signal \horizontal_counter0_carry__6_i_2_n_0\ : STD_LOGIC;
-  signal \horizontal_counter0_carry__6_i_3_n_0\ : STD_LOGIC;
   signal \horizontal_counter0_carry__6_n_2\ : STD_LOGIC;
   signal \horizontal_counter0_carry__6_n_3\ : STD_LOGIC;
-  signal horizontal_counter0_carry_i_1_n_0 : STD_LOGIC;
-  signal horizontal_counter0_carry_i_2_n_0 : STD_LOGIC;
-  signal horizontal_counter0_carry_i_3_n_0 : STD_LOGIC;
-  signal horizontal_counter0_carry_i_4_n_0 : STD_LOGIC;
   signal horizontal_counter0_carry_n_0 : STD_LOGIC;
   signal horizontal_counter0_carry_n_1 : STD_LOGIC;
   signal horizontal_counter0_carry_n_2 : STD_LOGIC;
@@ -171,11 +129,6 @@ architecture STRUCTURE of VGA_project_VGA_output_0_0_VGA_output is
   signal \horizontal_counter[31]_i_1_n_0\ : STD_LOGIC;
   signal \horizontal_counter[31]_i_2_n_0\ : STD_LOGIC;
   signal \horizontal_counter[31]_i_3_n_0\ : STD_LOGIC;
-  signal \horizontal_counter[31]_i_4_n_0\ : STD_LOGIC;
-  signal \horizontal_counter[31]_i_5_n_0\ : STD_LOGIC;
-  signal \horizontal_counter[31]_i_6_n_0\ : STD_LOGIC;
-  signal \horizontal_counter[31]_i_7_n_0\ : STD_LOGIC;
-  signal \horizontal_counter[31]_i_8_n_0\ : STD_LOGIC;
   signal horizontal_counter_1 : STD_LOGIC_VECTOR ( 0 to 0 );
   signal \^hsync\ : STD_LOGIC;
   signal hsync_i_10_n_0 : STD_LOGIC;
@@ -198,41 +151,11 @@ architecture STRUCTURE of VGA_project_VGA_output_0_0_VGA_output is
   signal vertical_counter : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal \vertical_counter[0]_i_1_n_0\ : STD_LOGIC;
   signal \vertical_counter[0]_i_2_n_0\ : STD_LOGIC;
-  signal \vertical_counter[12]_i_2_n_0\ : STD_LOGIC;
-  signal \vertical_counter[12]_i_3_n_0\ : STD_LOGIC;
-  signal \vertical_counter[12]_i_4_n_0\ : STD_LOGIC;
-  signal \vertical_counter[12]_i_5_n_0\ : STD_LOGIC;
-  signal \vertical_counter[16]_i_2_n_0\ : STD_LOGIC;
-  signal \vertical_counter[16]_i_3_n_0\ : STD_LOGIC;
-  signal \vertical_counter[16]_i_4_n_0\ : STD_LOGIC;
-  signal \vertical_counter[16]_i_5_n_0\ : STD_LOGIC;
-  signal \vertical_counter[20]_i_2_n_0\ : STD_LOGIC;
-  signal \vertical_counter[20]_i_3_n_0\ : STD_LOGIC;
-  signal \vertical_counter[20]_i_4_n_0\ : STD_LOGIC;
-  signal \vertical_counter[20]_i_5_n_0\ : STD_LOGIC;
-  signal \vertical_counter[24]_i_2_n_0\ : STD_LOGIC;
-  signal \vertical_counter[24]_i_3_n_0\ : STD_LOGIC;
-  signal \vertical_counter[24]_i_4_n_0\ : STD_LOGIC;
-  signal \vertical_counter[24]_i_5_n_0\ : STD_LOGIC;
-  signal \vertical_counter[28]_i_2_n_0\ : STD_LOGIC;
-  signal \vertical_counter[28]_i_3_n_0\ : STD_LOGIC;
-  signal \vertical_counter[28]_i_4_n_0\ : STD_LOGIC;
-  signal \vertical_counter[28]_i_5_n_0\ : STD_LOGIC;
+  signal \vertical_counter[0]_i_3_n_0\ : STD_LOGIC;
   signal \vertical_counter[31]_i_1_n_0\ : STD_LOGIC;
   signal \vertical_counter[31]_i_2_n_0\ : STD_LOGIC;
   signal \vertical_counter[31]_i_4_n_0\ : STD_LOGIC;
   signal \vertical_counter[31]_i_5_n_0\ : STD_LOGIC;
-  signal \vertical_counter[31]_i_6_n_0\ : STD_LOGIC;
-  signal \vertical_counter[31]_i_7_n_0\ : STD_LOGIC;
-  signal \vertical_counter[31]_i_8_n_0\ : STD_LOGIC;
-  signal \vertical_counter[4]_i_2_n_0\ : STD_LOGIC;
-  signal \vertical_counter[4]_i_3_n_0\ : STD_LOGIC;
-  signal \vertical_counter[4]_i_4_n_0\ : STD_LOGIC;
-  signal \vertical_counter[4]_i_5_n_0\ : STD_LOGIC;
-  signal \vertical_counter[8]_i_2_n_0\ : STD_LOGIC;
-  signal \vertical_counter[8]_i_3_n_0\ : STD_LOGIC;
-  signal \vertical_counter[8]_i_4_n_0\ : STD_LOGIC;
-  signal \vertical_counter[8]_i_5_n_0\ : STD_LOGIC;
   signal \vertical_counter_reg[12]_i_1_n_0\ : STD_LOGIC;
   signal \vertical_counter_reg[12]_i_1_n_1\ : STD_LOGIC;
   signal \vertical_counter_reg[12]_i_1_n_2\ : STD_LOGIC;
@@ -298,6 +221,7 @@ architecture STRUCTURE of VGA_project_VGA_output_0_0_VGA_output is
   signal vsync_i_10_n_0 : STD_LOGIC;
   signal vsync_i_11_n_0 : STD_LOGIC;
   signal vsync_i_12_n_0 : STD_LOGIC;
+  signal vsync_i_13_n_0 : STD_LOGIC;
   signal vsync_i_1_n_0 : STD_LOGIC;
   signal vsync_i_2_n_0 : STD_LOGIC;
   signal vsync_i_3_n_0 : STD_LOGIC;
@@ -314,24 +238,32 @@ architecture STRUCTURE of VGA_project_VGA_output_0_0_VGA_output is
   signal \NLW_vertical_counter_reg[31]_i_3_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
   signal \NLW_vertical_counter_reg[31]_i_3_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \current_pixel_index[18]_i_11\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \current_pixel_index[18]_i_4\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of display_now_horizontal_i_2 : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of display_now_horizontal_i_4 : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of display_now_horizontal_i_6 : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \green[0]_i_1\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \green[5]_i_1\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \horizontal_counter[31]_i_3\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \horizontal_counter[31]_i_5\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \horizontal_counter[31]_i_6\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \horizontal_counter[31]_i_7\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of hsync_i_7 : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of hsync_i_8 : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of outside_display_area_i_2 : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of outside_display_area_i_4 : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \vertical_counter[31]_i_8\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of vsync_i_12 : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of vsync_i_2 : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \current_pixel_index[18]_i_10\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \current_pixel_index[18]_i_11\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \current_pixel_index[18]_i_12\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \current_pixel_index[18]_i_13\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \current_pixel_index[18]_i_5\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \current_pixel_index[18]_i_8\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \current_pixel_index[18]_i_9\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of display_now_horizontal_i_3 : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of display_now_horizontal_i_4 : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \green[0]_i_1\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \green[5]_i_1\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \horizontal_counter[0]_i_1\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \horizontal_counter[31]_i_3\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of hsync_i_4 : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of hsync_i_5 : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of hsync_i_9 : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of outside_display_area_i_2 : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of outside_display_area_i_4 : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of \vertical_counter[0]_i_3\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \vertical_counter[31]_i_4\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \vertical_counter[31]_i_5\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of vsync_i_3 : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of vsync_i_4 : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of vsync_i_7 : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of vsync_i_8 : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of vsync_i_9 : label is "soft_lutpair11";
 begin
   current_pixel_index(18 downto 0) <= \^current_pixel_index\(18 downto 0);
   hsync <= \^hsync\;
@@ -353,105 +285,70 @@ begin
       Q => blue(1),
       R => \red[4]_i_1_n_0\
     );
-\current_pixel_index[11]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \^current_pixel_index\(11),
-      O => \current_pixel_index[11]_i_2_n_0\
-    );
-\current_pixel_index[11]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \^current_pixel_index\(10),
-      O => \current_pixel_index[11]_i_3_n_0\
-    );
-\current_pixel_index[11]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \^current_pixel_index\(9),
-      O => \current_pixel_index[11]_i_4_n_0\
-    );
-\current_pixel_index[11]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \^current_pixel_index\(8),
-      O => \current_pixel_index[11]_i_5_n_0\
-    );
-\current_pixel_index[15]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \^current_pixel_index\(15),
-      O => \current_pixel_index[15]_i_2_n_0\
-    );
-\current_pixel_index[15]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \^current_pixel_index\(14),
-      O => \current_pixel_index[15]_i_3_n_0\
-    );
-\current_pixel_index[15]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \^current_pixel_index\(13),
-      O => \current_pixel_index[15]_i_4_n_0\
-    );
-\current_pixel_index[15]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \^current_pixel_index\(12),
-      O => \current_pixel_index[15]_i_5_n_0\
-    );
 \current_pixel_index[18]_i_1\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"0000000000000004"
     )
         port map (
-      I0 => vsync_i_4_n_0,
+      I0 => \current_pixel_index[18]_i_4_n_0\,
       I1 => vsync_i_5_n_0,
-      I2 => vsync_i_6_n_0,
-      I3 => \current_pixel_index[18]_i_4_n_0\,
-      I4 => \current_pixel_index[18]_i_5_n_0\,
-      I5 => \current_pixel_index[18]_i_6_n_0\,
+      I2 => \current_pixel_index[18]_i_5_n_0\,
+      I3 => \current_pixel_index[18]_i_6_n_0\,
+      I4 => \current_pixel_index[18]_i_7_n_0\,
+      I5 => \current_pixel_index[18]_i_8_n_0\,
       O => \current_pixel_index[18]_i_1_n_0\
     );
-\current_pixel_index[18]_i_10\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"FFFFFFFFFFFFFFFE"
-    )
-        port map (
-      I0 => horizontal_counter(22),
-      I1 => horizontal_counter(21),
-      I2 => horizontal_counter(15),
-      I3 => horizontal_counter(20),
-      I4 => horizontal_counter(3),
-      I5 => horizontal_counter(2),
-      O => \current_pixel_index[18]_i_10_n_0\
-    );
-\current_pixel_index[18]_i_11\: unisim.vcomponents.LUT3
+\current_pixel_index[18]_i_10\: unisim.vcomponents.LUT3
     generic map(
       INIT => X"FE"
     )
         port map (
-      I0 => horizontal_counter(26),
-      I1 => horizontal_counter(25),
-      I2 => horizontal_counter(24),
+      I0 => vertical_counter(5),
+      I1 => vertical_counter(7),
+      I2 => vertical_counter(6),
+      O => \current_pixel_index[18]_i_10_n_0\
+    );
+\current_pixel_index[18]_i_11\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"FF7F"
+    )
+        port map (
+      I0 => vertical_counter(9),
+      I1 => vertical_counter(0),
+      I2 => vertical_counter(3),
+      I3 => vertical_counter(2),
       O => \current_pixel_index[18]_i_11_n_0\
+    );
+\current_pixel_index[18]_i_12\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"E"
+    )
+        port map (
+      I0 => horizontal_counter(31),
+      I1 => horizontal_counter(30),
+      O => \current_pixel_index[18]_i_12_n_0\
+    );
+\current_pixel_index[18]_i_13\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"E"
+    )
+        port map (
+      I0 => horizontal_counter(10),
+      I1 => horizontal_counter(11),
+      O => \current_pixel_index[18]_i_13_n_0\
+    );
+\current_pixel_index[18]_i_14\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFFFFFFFFFFFFFE"
+    )
+        port map (
+      I0 => horizontal_counter(21),
+      I1 => horizontal_counter(22),
+      I2 => horizontal_counter(23),
+      I3 => horizontal_counter(12),
+      I4 => horizontal_counter(13),
+      I5 => horizontal_counter(14),
+      O => \current_pixel_index[18]_i_14_n_0\
     );
 \current_pixel_index[18]_i_2\: unisim.vcomponents.LUT2
     generic map(
@@ -462,130 +359,87 @@ begin
       I1 => display_now_vertical,
       O => \current_pixel_index[18]_i_2_n_0\
     );
-\current_pixel_index[18]_i_4\: unisim.vcomponents.LUT5
+\current_pixel_index[18]_i_4\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE"
+      INIT => X"FFFFFFFFFFFFFFFE"
     )
         port map (
-      I0 => hsync_i_7_n_0,
-      I1 => horizontal_counter(0),
-      I2 => horizontal_counter(1),
-      I3 => horizontal_counter(10),
-      I4 => horizontal_counter(11),
+      I0 => \current_pixel_index[18]_i_9_n_0\,
+      I1 => \current_pixel_index[18]_i_10_n_0\,
+      I2 => vsync_i_7_n_0,
+      I3 => vertical_counter(8),
+      I4 => vertical_counter(1),
+      I5 => \current_pixel_index[18]_i_11_n_0\,
       O => \current_pixel_index[18]_i_4_n_0\
     );
-\current_pixel_index[18]_i_5\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"FFFFFFFFFFFFFEFF"
-    )
-        port map (
-      I0 => \current_pixel_index[18]_i_10_n_0\,
-      I1 => horizontal_counter(27),
-      I2 => horizontal_counter(23),
-      I3 => horizontal_counter(5),
-      I4 => horizontal_counter(4),
-      I5 => hsync_i_10_n_0,
-      O => \current_pixel_index[18]_i_5_n_0\
-    );
-\current_pixel_index[18]_i_6\: unisim.vcomponents.LUT5
+\current_pixel_index[18]_i_5\: unisim.vcomponents.LUT5
     generic map(
       INIT => X"FFFFFFFE"
     )
         port map (
-      I0 => horizontal_counter(12),
-      I1 => horizontal_counter(13),
-      I2 => horizontal_counter(14),
-      I3 => display_now_horizontal_i_2_n_0,
-      I4 => \current_pixel_index[18]_i_11_n_0\,
+      I0 => hsync_i_8_n_0,
+      I1 => horizontal_counter(24),
+      I2 => horizontal_counter(25),
+      I3 => horizontal_counter(16),
+      I4 => horizontal_counter(17),
+      O => \current_pixel_index[18]_i_5_n_0\
+    );
+\current_pixel_index[18]_i_6\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"FFFFFFFFFEFFFFFF"
+    )
+        port map (
+      I0 => horizontal_counter(15),
+      I1 => horizontal_counter(20),
+      I2 => horizontal_counter(4),
+      I3 => horizontal_counter(5),
+      I4 => horizontal_counter(9),
+      I5 => \current_pixel_index[18]_i_12_n_0\,
       O => \current_pixel_index[18]_i_6_n_0\
     );
-\current_pixel_index[18]_i_7\: unisim.vcomponents.LUT1
+\current_pixel_index[18]_i_7\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"2"
+      INIT => X"FFFFFFFFFFFFFFFE"
     )
         port map (
-      I0 => \^current_pixel_index\(18),
+      I0 => horizontal_counter(0),
+      I1 => horizontal_counter(1),
+      I2 => \current_pixel_index[18]_i_13_n_0\,
+      I3 => \vertical_counter[31]_i_5_n_0\,
+      I4 => horizontal_counter(28),
+      I5 => horizontal_counter(29),
       O => \current_pixel_index[18]_i_7_n_0\
     );
-\current_pixel_index[18]_i_8\: unisim.vcomponents.LUT1
+\current_pixel_index[18]_i_8\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"2"
+      INIT => X"FFFD"
     )
         port map (
-      I0 => \^current_pixel_index\(17),
+      I0 => horizontal_counter(8),
+      I1 => horizontal_counter(6),
+      I2 => horizontal_counter(7),
+      I3 => \current_pixel_index[18]_i_14_n_0\,
       O => \current_pixel_index[18]_i_8_n_0\
     );
-\current_pixel_index[18]_i_9\: unisim.vcomponents.LUT1
+\current_pixel_index[18]_i_9\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"2"
+      INIT => X"FFFFFFFE"
     )
         port map (
-      I0 => \^current_pixel_index\(16),
+      I0 => vertical_counter(4),
+      I1 => vertical_counter(12),
+      I2 => vertical_counter(13),
+      I3 => vertical_counter(14),
+      I4 => vertical_counter(15),
       O => \current_pixel_index[18]_i_9_n_0\
     );
 \current_pixel_index[3]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \^current_pixel_index\(3),
-      O => \current_pixel_index[3]_i_2_n_0\
-    );
-\current_pixel_index[3]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \^current_pixel_index\(2),
-      O => \current_pixel_index[3]_i_3_n_0\
-    );
-\current_pixel_index[3]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \^current_pixel_index\(1),
-      O => \current_pixel_index[3]_i_4_n_0\
-    );
-\current_pixel_index[3]_i_5\: unisim.vcomponents.LUT1
     generic map(
       INIT => X"1"
     )
         port map (
       I0 => \^current_pixel_index\(0),
-      O => \current_pixel_index[3]_i_5_n_0\
-    );
-\current_pixel_index[7]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \^current_pixel_index\(7),
-      O => \current_pixel_index[7]_i_2_n_0\
-    );
-\current_pixel_index[7]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \^current_pixel_index\(6),
-      O => \current_pixel_index[7]_i_3_n_0\
-    );
-\current_pixel_index[7]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \^current_pixel_index\(5),
-      O => \current_pixel_index[7]_i_4_n_0\
-    );
-\current_pixel_index[7]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => \^current_pixel_index\(4),
-      O => \current_pixel_index[7]_i_5_n_0\
+      O => \current_pixel_index[3]_i_2_n_0\
     );
 \current_pixel_index_reg[0]\: unisim.vcomponents.FDRE
      port map (
@@ -624,10 +478,7 @@ begin
       O(2) => \current_pixel_index_reg[11]_i_1_n_5\,
       O(1) => \current_pixel_index_reg[11]_i_1_n_6\,
       O(0) => \current_pixel_index_reg[11]_i_1_n_7\,
-      S(3) => \current_pixel_index[11]_i_2_n_0\,
-      S(2) => \current_pixel_index[11]_i_3_n_0\,
-      S(1) => \current_pixel_index[11]_i_4_n_0\,
-      S(0) => \current_pixel_index[11]_i_5_n_0\
+      S(3 downto 0) => \^current_pixel_index\(11 downto 8)
     );
 \current_pixel_index_reg[12]\: unisim.vcomponents.FDRE
      port map (
@@ -674,10 +525,7 @@ begin
       O(2) => \current_pixel_index_reg[15]_i_1_n_5\,
       O(1) => \current_pixel_index_reg[15]_i_1_n_6\,
       O(0) => \current_pixel_index_reg[15]_i_1_n_7\,
-      S(3) => \current_pixel_index[15]_i_2_n_0\,
-      S(2) => \current_pixel_index[15]_i_3_n_0\,
-      S(1) => \current_pixel_index[15]_i_4_n_0\,
-      S(0) => \current_pixel_index[15]_i_5_n_0\
+      S(3 downto 0) => \^current_pixel_index\(15 downto 12)
     );
 \current_pixel_index_reg[16]\: unisim.vcomponents.FDRE
      port map (
@@ -716,9 +564,7 @@ begin
       O(1) => \current_pixel_index_reg[18]_i_3_n_6\,
       O(0) => \current_pixel_index_reg[18]_i_3_n_7\,
       S(3) => '0',
-      S(2) => \current_pixel_index[18]_i_7_n_0\,
-      S(1) => \current_pixel_index[18]_i_8_n_0\,
-      S(0) => \current_pixel_index[18]_i_9_n_0\
+      S(2 downto 0) => \^current_pixel_index\(18 downto 16)
     );
 \current_pixel_index_reg[1]\: unisim.vcomponents.FDRE
      port map (
@@ -757,10 +603,8 @@ begin
       O(2) => \current_pixel_index_reg[3]_i_1_n_5\,
       O(1) => \current_pixel_index_reg[3]_i_1_n_6\,
       O(0) => \current_pixel_index_reg[3]_i_1_n_7\,
-      S(3) => \current_pixel_index[3]_i_2_n_0\,
-      S(2) => \current_pixel_index[3]_i_3_n_0\,
-      S(1) => \current_pixel_index[3]_i_4_n_0\,
-      S(0) => \current_pixel_index[3]_i_5_n_0\
+      S(3 downto 1) => \^current_pixel_index\(3 downto 1),
+      S(0) => \current_pixel_index[3]_i_2_n_0\
     );
 \current_pixel_index_reg[4]\: unisim.vcomponents.FDRE
      port map (
@@ -807,10 +651,7 @@ begin
       O(2) => \current_pixel_index_reg[7]_i_1_n_5\,
       O(1) => \current_pixel_index_reg[7]_i_1_n_6\,
       O(0) => \current_pixel_index_reg[7]_i_1_n_7\,
-      S(3) => \current_pixel_index[7]_i_2_n_0\,
-      S(2) => \current_pixel_index[7]_i_3_n_0\,
-      S(1) => \current_pixel_index[7]_i_4_n_0\,
-      S(0) => \current_pixel_index[7]_i_5_n_0\
+      S(3 downto 0) => \^current_pixel_index\(7 downto 4)
     );
 \current_pixel_index_reg[8]\: unisim.vcomponents.FDRE
      port map (
@@ -828,76 +669,87 @@ begin
       Q => \^current_pixel_index\(9),
       R => \current_pixel_index[18]_i_1_n_0\
     );
-display_now_horizontal_i_1: unisim.vcomponents.LUT5
+display_now_horizontal_i_1: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"C8CFCCCC"
+      INIT => X"F0E0F0FFF0F0F0F0"
     )
         port map (
       I0 => display_now_horizontal_i_2_n_0,
-      I1 => display_now_horizontal,
-      I2 => display_now_horizontal_i_3_n_0,
+      I1 => display_now_horizontal_i_3_n_0,
+      I2 => display_now_horizontal,
       I3 => display_now_horizontal_i_4_n_0,
       I4 => display_now_horizontal_i_5_n_0,
+      I5 => display_now_horizontal_i_6_n_0,
       O => display_now_horizontal_i_1_n_0
     );
-display_now_horizontal_i_2: unisim.vcomponents.LUT4
+display_now_horizontal_i_2: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"FFDF"
-    )
-        port map (
-      I0 => horizontal_counter(8),
-      I1 => horizontal_counter(6),
-      I2 => horizontal_counter(9),
-      I3 => horizontal_counter(7),
-      O => display_now_horizontal_i_2_n_0
-    );
-display_now_horizontal_i_3: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"EFFFFFFFFFFFFFFF"
+      INIT => X"EF"
     )
         port map (
       I0 => horizontal_counter(4),
       I1 => horizontal_counter(5),
-      I2 => horizontal_counter(0),
-      I3 => horizontal_counter(3),
-      I4 => horizontal_counter(1),
-      I5 => horizontal_counter(2),
+      I2 => horizontal_counter(9),
+      O => display_now_horizontal_i_2_n_0
+    );
+display_now_horizontal_i_3: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"EF"
+    )
+        port map (
+      I0 => horizontal_counter(7),
+      I1 => horizontal_counter(6),
+      I2 => horizontal_counter(8),
       O => display_now_horizontal_i_3_n_0
     );
 display_now_horizontal_i_4: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"FFEF"
+      INIT => X"7FFF"
     )
         port map (
-      I0 => horizontal_counter(9),
-      I1 => horizontal_counter(8),
-      I2 => horizontal_counter(7),
-      I3 => horizontal_counter(6),
+      I0 => horizontal_counter(3),
+      I1 => horizontal_counter(0),
+      I2 => horizontal_counter(2),
+      I3 => horizontal_counter(1),
       O => display_now_horizontal_i_4_n_0
     );
 display_now_horizontal_i_5: unisim.vcomponents.LUT6
     generic map(
+      INIT => X"FFFFFFFFFFFFFEFF"
+    )
+        port map (
+      I0 => horizontal_counter(4),
+      I1 => horizontal_counter(5),
+      I2 => horizontal_counter(6),
+      I3 => horizontal_counter(7),
+      I4 => horizontal_counter(8),
+      I5 => horizontal_counter(9),
+      O => display_now_horizontal_i_5_n_0
+    );
+display_now_horizontal_i_6: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00000010"
+    )
+        port map (
+      I0 => hsync_i_8_n_0,
+      I1 => hsync_i_10_n_0,
+      I2 => display_now_horizontal_i_7_n_0,
+      I3 => hsync_i_3_n_0,
+      I4 => \horizontal_counter[31]_i_2_n_0\,
+      O => display_now_horizontal_i_6_n_0
+    );
+display_now_horizontal_i_7: unisim.vcomponents.LUT6
+    generic map(
       INIT => X"0000000000000001"
     )
         port map (
-      I0 => hsync_i_10_n_0,
-      I1 => display_now_horizontal_i_6_n_0,
-      I2 => hsync_i_8_n_0,
-      I3 => hsync_i_7_n_0,
-      I4 => \horizontal_counter[31]_i_2_n_0\,
-      I5 => hsync_i_3_n_0,
-      O => display_now_horizontal_i_5_n_0
-    );
-display_now_horizontal_i_6: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"FFFE"
-    )
-        port map (
-      I0 => horizontal_counter(22),
-      I1 => horizontal_counter(21),
-      I2 => horizontal_counter(23),
-      I3 => horizontal_counter(20),
-      O => display_now_horizontal_i_6_n_0
+      I0 => horizontal_counter(16),
+      I1 => horizontal_counter(17),
+      I2 => horizontal_counter(10),
+      I3 => horizontal_counter(11),
+      I4 => horizontal_counter(25),
+      I5 => horizontal_counter(24),
+      O => display_now_horizontal_i_7_n_0
     );
 display_now_horizontal_reg: unisim.vcomponents.FDRE
     generic map(
@@ -910,16 +762,17 @@ display_now_horizontal_reg: unisim.vcomponents.FDRE
       Q => display_now_horizontal,
       R => '0'
     );
-display_now_vertical_i_1: unisim.vcomponents.LUT5
+display_now_vertical_i_1: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"A8AFAAAA"
+      INIT => X"AAAAAAAAA8AFAAAA"
     )
         port map (
       I0 => display_now_vertical,
       I1 => outside_display_area_i_2_n_0,
       I2 => outside_display_area_i_3_n_0,
       I3 => outside_display_area_i_4_n_0,
-      I4 => outside_display_area_i_5_n_0,
+      I4 => vsync_i_5_n_0,
+      I5 => outside_display_area_i_5_n_0,
       O => display_now_vertical_i_1_n_0
     );
 display_now_vertical_reg: unisim.vcomponents.FDRE
@@ -998,10 +851,7 @@ horizontal_counter0_carry: unisim.vcomponents.CARRY4
       CYINIT => horizontal_counter(0),
       DI(3 downto 0) => B"0000",
       O(3 downto 0) => data0(4 downto 1),
-      S(3) => horizontal_counter0_carry_i_1_n_0,
-      S(2) => horizontal_counter0_carry_i_2_n_0,
-      S(1) => horizontal_counter0_carry_i_3_n_0,
-      S(0) => horizontal_counter0_carry_i_4_n_0
+      S(3 downto 0) => horizontal_counter(4 downto 1)
     );
 \horizontal_counter0_carry__0\: unisim.vcomponents.CARRY4
      port map (
@@ -1013,42 +863,7 @@ horizontal_counter0_carry: unisim.vcomponents.CARRY4
       CYINIT => '0',
       DI(3 downto 0) => B"0000",
       O(3 downto 0) => data0(8 downto 5),
-      S(3) => \horizontal_counter0_carry__0_i_1_n_0\,
-      S(2) => \horizontal_counter0_carry__0_i_2_n_0\,
-      S(1) => \horizontal_counter0_carry__0_i_3_n_0\,
-      S(0) => \horizontal_counter0_carry__0_i_4_n_0\
-    );
-\horizontal_counter0_carry__0_i_1\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => horizontal_counter(8),
-      O => \horizontal_counter0_carry__0_i_1_n_0\
-    );
-\horizontal_counter0_carry__0_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => horizontal_counter(7),
-      O => \horizontal_counter0_carry__0_i_2_n_0\
-    );
-\horizontal_counter0_carry__0_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => horizontal_counter(6),
-      O => \horizontal_counter0_carry__0_i_3_n_0\
-    );
-\horizontal_counter0_carry__0_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => horizontal_counter(5),
-      O => \horizontal_counter0_carry__0_i_4_n_0\
+      S(3 downto 0) => horizontal_counter(8 downto 5)
     );
 \horizontal_counter0_carry__1\: unisim.vcomponents.CARRY4
      port map (
@@ -1060,42 +875,7 @@ horizontal_counter0_carry: unisim.vcomponents.CARRY4
       CYINIT => '0',
       DI(3 downto 0) => B"0000",
       O(3 downto 0) => data0(12 downto 9),
-      S(3) => \horizontal_counter0_carry__1_i_1_n_0\,
-      S(2) => \horizontal_counter0_carry__1_i_2_n_0\,
-      S(1) => \horizontal_counter0_carry__1_i_3_n_0\,
-      S(0) => \horizontal_counter0_carry__1_i_4_n_0\
-    );
-\horizontal_counter0_carry__1_i_1\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => horizontal_counter(12),
-      O => \horizontal_counter0_carry__1_i_1_n_0\
-    );
-\horizontal_counter0_carry__1_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => horizontal_counter(11),
-      O => \horizontal_counter0_carry__1_i_2_n_0\
-    );
-\horizontal_counter0_carry__1_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => horizontal_counter(10),
-      O => \horizontal_counter0_carry__1_i_3_n_0\
-    );
-\horizontal_counter0_carry__1_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => horizontal_counter(9),
-      O => \horizontal_counter0_carry__1_i_4_n_0\
+      S(3 downto 0) => horizontal_counter(12 downto 9)
     );
 \horizontal_counter0_carry__2\: unisim.vcomponents.CARRY4
      port map (
@@ -1107,42 +887,7 @@ horizontal_counter0_carry: unisim.vcomponents.CARRY4
       CYINIT => '0',
       DI(3 downto 0) => B"0000",
       O(3 downto 0) => data0(16 downto 13),
-      S(3) => \horizontal_counter0_carry__2_i_1_n_0\,
-      S(2) => \horizontal_counter0_carry__2_i_2_n_0\,
-      S(1) => \horizontal_counter0_carry__2_i_3_n_0\,
-      S(0) => \horizontal_counter0_carry__2_i_4_n_0\
-    );
-\horizontal_counter0_carry__2_i_1\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => horizontal_counter(16),
-      O => \horizontal_counter0_carry__2_i_1_n_0\
-    );
-\horizontal_counter0_carry__2_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => horizontal_counter(15),
-      O => \horizontal_counter0_carry__2_i_2_n_0\
-    );
-\horizontal_counter0_carry__2_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => horizontal_counter(14),
-      O => \horizontal_counter0_carry__2_i_3_n_0\
-    );
-\horizontal_counter0_carry__2_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => horizontal_counter(13),
-      O => \horizontal_counter0_carry__2_i_4_n_0\
+      S(3 downto 0) => horizontal_counter(16 downto 13)
     );
 \horizontal_counter0_carry__3\: unisim.vcomponents.CARRY4
      port map (
@@ -1154,42 +899,7 @@ horizontal_counter0_carry: unisim.vcomponents.CARRY4
       CYINIT => '0',
       DI(3 downto 0) => B"0000",
       O(3 downto 0) => data0(20 downto 17),
-      S(3) => \horizontal_counter0_carry__3_i_1_n_0\,
-      S(2) => \horizontal_counter0_carry__3_i_2_n_0\,
-      S(1) => \horizontal_counter0_carry__3_i_3_n_0\,
-      S(0) => \horizontal_counter0_carry__3_i_4_n_0\
-    );
-\horizontal_counter0_carry__3_i_1\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => horizontal_counter(20),
-      O => \horizontal_counter0_carry__3_i_1_n_0\
-    );
-\horizontal_counter0_carry__3_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => horizontal_counter(19),
-      O => \horizontal_counter0_carry__3_i_2_n_0\
-    );
-\horizontal_counter0_carry__3_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => horizontal_counter(18),
-      O => \horizontal_counter0_carry__3_i_3_n_0\
-    );
-\horizontal_counter0_carry__3_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => horizontal_counter(17),
-      O => \horizontal_counter0_carry__3_i_4_n_0\
+      S(3 downto 0) => horizontal_counter(20 downto 17)
     );
 \horizontal_counter0_carry__4\: unisim.vcomponents.CARRY4
      port map (
@@ -1201,42 +911,7 @@ horizontal_counter0_carry: unisim.vcomponents.CARRY4
       CYINIT => '0',
       DI(3 downto 0) => B"0000",
       O(3 downto 0) => data0(24 downto 21),
-      S(3) => \horizontal_counter0_carry__4_i_1_n_0\,
-      S(2) => \horizontal_counter0_carry__4_i_2_n_0\,
-      S(1) => \horizontal_counter0_carry__4_i_3_n_0\,
-      S(0) => \horizontal_counter0_carry__4_i_4_n_0\
-    );
-\horizontal_counter0_carry__4_i_1\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => horizontal_counter(24),
-      O => \horizontal_counter0_carry__4_i_1_n_0\
-    );
-\horizontal_counter0_carry__4_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => horizontal_counter(23),
-      O => \horizontal_counter0_carry__4_i_2_n_0\
-    );
-\horizontal_counter0_carry__4_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => horizontal_counter(22),
-      O => \horizontal_counter0_carry__4_i_3_n_0\
-    );
-\horizontal_counter0_carry__4_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => horizontal_counter(21),
-      O => \horizontal_counter0_carry__4_i_4_n_0\
+      S(3 downto 0) => horizontal_counter(24 downto 21)
     );
 \horizontal_counter0_carry__5\: unisim.vcomponents.CARRY4
      port map (
@@ -1248,42 +923,7 @@ horizontal_counter0_carry: unisim.vcomponents.CARRY4
       CYINIT => '0',
       DI(3 downto 0) => B"0000",
       O(3 downto 0) => data0(28 downto 25),
-      S(3) => \horizontal_counter0_carry__5_i_1_n_0\,
-      S(2) => \horizontal_counter0_carry__5_i_2_n_0\,
-      S(1) => \horizontal_counter0_carry__5_i_3_n_0\,
-      S(0) => \horizontal_counter0_carry__5_i_4_n_0\
-    );
-\horizontal_counter0_carry__5_i_1\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => horizontal_counter(28),
-      O => \horizontal_counter0_carry__5_i_1_n_0\
-    );
-\horizontal_counter0_carry__5_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => horizontal_counter(27),
-      O => \horizontal_counter0_carry__5_i_2_n_0\
-    );
-\horizontal_counter0_carry__5_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => horizontal_counter(26),
-      O => \horizontal_counter0_carry__5_i_3_n_0\
-    );
-\horizontal_counter0_carry__5_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => horizontal_counter(25),
-      O => \horizontal_counter0_carry__5_i_4_n_0\
+      S(3 downto 0) => horizontal_counter(28 downto 25)
     );
 \horizontal_counter0_carry__6\: unisim.vcomponents.CARRY4
      port map (
@@ -1296,65 +936,7 @@ horizontal_counter0_carry: unisim.vcomponents.CARRY4
       O(3) => \NLW_horizontal_counter0_carry__6_O_UNCONNECTED\(3),
       O(2 downto 0) => data0(31 downto 29),
       S(3) => '0',
-      S(2) => \horizontal_counter0_carry__6_i_1_n_0\,
-      S(1) => \horizontal_counter0_carry__6_i_2_n_0\,
-      S(0) => \horizontal_counter0_carry__6_i_3_n_0\
-    );
-\horizontal_counter0_carry__6_i_1\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => horizontal_counter(31),
-      O => \horizontal_counter0_carry__6_i_1_n_0\
-    );
-\horizontal_counter0_carry__6_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => horizontal_counter(30),
-      O => \horizontal_counter0_carry__6_i_2_n_0\
-    );
-\horizontal_counter0_carry__6_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => horizontal_counter(29),
-      O => \horizontal_counter0_carry__6_i_3_n_0\
-    );
-horizontal_counter0_carry_i_1: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => horizontal_counter(4),
-      O => horizontal_counter0_carry_i_1_n_0
-    );
-horizontal_counter0_carry_i_2: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => horizontal_counter(3),
-      O => horizontal_counter0_carry_i_2_n_0
-    );
-horizontal_counter0_carry_i_3: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => horizontal_counter(2),
-      O => horizontal_counter0_carry_i_3_n_0
-    );
-horizontal_counter0_carry_i_4: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => horizontal_counter(1),
-      O => horizontal_counter0_carry_i_4_n_0
+      S(2 downto 0) => horizontal_counter(31 downto 29)
     );
 \horizontal_counter[0]_i_1\: unisim.vcomponents.LUT1
     generic map(
@@ -1364,91 +946,39 @@ horizontal_counter0_carry_i_4: unisim.vcomponents.LUT1
       I0 => horizontal_counter(0),
       O => horizontal_counter_1(0)
     );
-\horizontal_counter[31]_i_1\: unisim.vcomponents.LUT6
+\horizontal_counter[31]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"0000000000000100"
+      INIT => X"00000002"
     )
         port map (
-      I0 => hsync_i_3_n_0,
+      I0 => hsync_i_4_n_0,
       I1 => \horizontal_counter[31]_i_2_n_0\,
-      I2 => \horizontal_counter[31]_i_3_n_0\,
-      I3 => \horizontal_counter[31]_i_4_n_0\,
-      I4 => \horizontal_counter[31]_i_5_n_0\,
-      I5 => \horizontal_counter[31]_i_6_n_0\,
+      I2 => \current_pixel_index[18]_i_5_n_0\,
+      I3 => \current_pixel_index[18]_i_7_n_0\,
+      I4 => \horizontal_counter[31]_i_3_n_0\,
       O => \horizontal_counter[31]_i_1_n_0\
     );
-\horizontal_counter[31]_i_2\: unisim.vcomponents.LUT2
+\horizontal_counter[31]_i_2\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"E"
+      INIT => X"FFFE"
     )
         port map (
-      I0 => horizontal_counter(10),
-      I1 => horizontal_counter(11),
+      I0 => horizontal_counter(20),
+      I1 => horizontal_counter(21),
+      I2 => horizontal_counter(22),
+      I3 => horizontal_counter(23),
       O => \horizontal_counter[31]_i_2_n_0\
     );
-\horizontal_counter[31]_i_3\: unisim.vcomponents.LUT2
+\horizontal_counter[31]_i_3\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"E"
+      INIT => X"FFEF"
     )
         port map (
-      I0 => horizontal_counter(28),
-      I1 => horizontal_counter(29),
-      O => \horizontal_counter[31]_i_3_n_0\
-    );
-\horizontal_counter[31]_i_4\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"0000000000000001"
-    )
-        port map (
-      I0 => \horizontal_counter[31]_i_7_n_0\,
-      I1 => \horizontal_counter[31]_i_8_n_0\,
-      I2 => horizontal_counter(4),
-      I3 => horizontal_counter(31),
-      I4 => horizontal_counter(6),
-      I5 => horizontal_counter(7),
-      O => \horizontal_counter[31]_i_4_n_0\
-    );
-\horizontal_counter[31]_i_5\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"EFFFFFFF"
-    )
-        port map (
-      I0 => hsync_i_8_n_0,
-      I1 => horizontal_counter(30),
+      I0 => horizontal_counter(30),
+      I1 => horizontal_counter(31),
       I2 => horizontal_counter(8),
-      I3 => horizontal_counter(5),
-      I4 => horizontal_counter(9),
-      O => \horizontal_counter[31]_i_5_n_0\
-    );
-\horizontal_counter[31]_i_6\: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"FFFFFFFE"
-    )
-        port map (
-      I0 => hsync_i_10_n_0,
-      I1 => horizontal_counter(20),
-      I2 => horizontal_counter(23),
-      I3 => horizontal_counter(21),
-      I4 => horizontal_counter(22),
-      O => \horizontal_counter[31]_i_6_n_0\
-    );
-\horizontal_counter[31]_i_7\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"E"
-    )
-        port map (
-      I0 => horizontal_counter(0),
-      I1 => horizontal_counter(1),
-      O => \horizontal_counter[31]_i_7_n_0\
-    );
-\horizontal_counter[31]_i_8\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"E"
-    )
-        port map (
-      I0 => horizontal_counter(3),
-      I1 => horizontal_counter(2),
-      O => \horizontal_counter[31]_i_8_n_0\
+      I3 => horizontal_counter(4),
+      O => \horizontal_counter[31]_i_3_n_0\
     );
 \horizontal_counter_reg[0]\: unisim.vcomponents.FDRE
     generic map(
@@ -1804,12 +1334,12 @@ horizontal_counter0_carry_i_4: unisim.vcomponents.LUT1
     );
 hsync_i_1: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"CCCCC8CFCCCCCCCC"
+      INIT => X"FFE0E0E0F0F0F0F0"
     )
         port map (
       I0 => hsync_i_2_n_0,
-      I1 => \^hsync\,
-      I2 => hsync_i_3_n_0,
+      I1 => hsync_i_3_n_0,
+      I2 => \^hsync\,
       I3 => hsync_i_4_n_0,
       I4 => hsync_i_5_n_0,
       I5 => hsync_i_6_n_0,
@@ -1820,23 +1350,23 @@ hsync_i_10: unisim.vcomponents.LUT4
       INIT => X"FFFE"
     )
         port map (
-      I0 => horizontal_counter(17),
-      I1 => horizontal_counter(16),
-      I2 => horizontal_counter(19),
-      I3 => horizontal_counter(18),
+      I0 => horizontal_counter(29),
+      I1 => horizontal_counter(28),
+      I2 => horizontal_counter(30),
+      I3 => horizontal_counter(31),
       O => hsync_i_10_n_0
     );
 hsync_i_2: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFFFFFFEFFF"
+      INIT => X"FFFFFFFFFFEFFFFF"
     )
         port map (
-      I0 => horizontal_counter(4),
-      I1 => horizontal_counter(0),
-      I2 => horizontal_counter(5),
-      I3 => horizontal_counter(6),
-      I4 => horizontal_counter(8),
-      I5 => horizontal_counter(9),
+      I0 => \vertical_counter[31]_i_4_n_0\,
+      I1 => hsync_i_7_n_0,
+      I2 => horizontal_counter(6),
+      I3 => horizontal_counter(0),
+      I4 => horizontal_counter(5),
+      I5 => horizontal_counter(7),
       O => hsync_i_2_n_0
     );
 hsync_i_3: unisim.vcomponents.LUT4
@@ -1850,30 +1380,28 @@ hsync_i_3: unisim.vcomponents.LUT4
       I3 => horizontal_counter(14),
       O => hsync_i_3_n_0
     );
-hsync_i_4: unisim.vcomponents.LUT6
+hsync_i_4: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFEFFFFFFFFFFF"
+      INIT => X"01000000"
     )
         port map (
-      I0 => horizontal_counter(4),
-      I1 => horizontal_counter(0),
-      I2 => horizontal_counter(5),
-      I3 => horizontal_counter(9),
-      I4 => horizontal_counter(6),
-      I5 => horizontal_counter(8),
+      I0 => hsync_i_3_n_0,
+      I1 => horizontal_counter(6),
+      I2 => horizontal_counter(7),
+      I3 => horizontal_counter(5),
+      I4 => horizontal_counter(9),
       O => hsync_i_4_n_0
     );
-hsync_i_5: unisim.vcomponents.LUT6
+hsync_i_5: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFFFFFFFFFFFFE"
+      INIT => X"00000010"
     )
         port map (
-      I0 => horizontal_counter(11),
-      I1 => horizontal_counter(10),
-      I2 => horizontal_counter(1),
-      I3 => horizontal_counter(7),
-      I4 => horizontal_counter(3),
-      I5 => horizontal_counter(2),
+      I0 => \vertical_counter[31]_i_4_n_0\,
+      I1 => horizontal_counter(0),
+      I2 => horizontal_counter(8),
+      I3 => horizontal_counter(3),
+      I4 => horizontal_counter(2),
       O => hsync_i_5_n_0
     );
 hsync_i_6: unisim.vcomponents.LUT6
@@ -1881,12 +1409,12 @@ hsync_i_6: unisim.vcomponents.LUT6
       INIT => X"0000000000000001"
     )
         port map (
-      I0 => hsync_i_7_n_0,
-      I1 => hsync_i_8_n_0,
-      I2 => hsync_i_9_n_0,
-      I3 => horizontal_counter(23),
-      I4 => horizontal_counter(20),
-      I5 => hsync_i_10_n_0,
+      I0 => hsync_i_8_n_0,
+      I1 => hsync_i_9_n_0,
+      I2 => horizontal_counter(16),
+      I3 => horizontal_counter(17),
+      I4 => hsync_i_10_n_0,
+      I5 => \horizontal_counter[31]_i_2_n_0\,
       O => hsync_i_6_n_0
     );
 hsync_i_7: unisim.vcomponents.LUT4
@@ -1894,10 +1422,10 @@ hsync_i_7: unisim.vcomponents.LUT4
       INIT => X"FFFE"
     )
         port map (
-      I0 => horizontal_counter(29),
-      I1 => horizontal_counter(28),
-      I2 => horizontal_counter(30),
-      I3 => horizontal_counter(31),
+      I0 => horizontal_counter(9),
+      I1 => horizontal_counter(8),
+      I2 => horizontal_counter(2),
+      I3 => horizontal_counter(3),
       O => hsync_i_7_n_0
     );
 hsync_i_8: unisim.vcomponents.LUT4
@@ -1905,9 +1433,9 @@ hsync_i_8: unisim.vcomponents.LUT4
       INIT => X"FFFE"
     )
         port map (
-      I0 => horizontal_counter(27),
-      I1 => horizontal_counter(24),
-      I2 => horizontal_counter(25),
+      I0 => horizontal_counter(19),
+      I1 => horizontal_counter(18),
+      I2 => horizontal_counter(27),
       I3 => horizontal_counter(26),
       O => hsync_i_8_n_0
     );
@@ -1916,8 +1444,8 @@ hsync_i_9: unisim.vcomponents.LUT2
       INIT => X"E"
     )
         port map (
-      I0 => horizontal_counter(21),
-      I1 => horizontal_counter(22),
+      I0 => horizontal_counter(24),
+      I1 => horizontal_counter(25),
       O => hsync_i_9_n_0
     );
 hsync_reg: unisim.vcomponents.FDRE
@@ -1928,16 +1456,17 @@ hsync_reg: unisim.vcomponents.FDRE
       Q => \^hsync\,
       R => '0'
     );
-outside_display_area_i_1: unisim.vcomponents.LUT5
+outside_display_area_i_1: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"ABA0AAAA"
+      INIT => X"AAAAAAAAABA0AAAA"
     )
         port map (
       I0 => \^outside_display_area\,
       I1 => outside_display_area_i_2_n_0,
       I2 => outside_display_area_i_3_n_0,
       I3 => outside_display_area_i_4_n_0,
-      I4 => outside_display_area_i_5_n_0,
+      I4 => vsync_i_5_n_0,
+      I5 => outside_display_area_i_5_n_0,
       O => outside_display_area_i_1_n_0
     );
 outside_display_area_i_2: unisim.vcomponents.LUT5
@@ -1978,15 +1507,15 @@ outside_display_area_i_4: unisim.vcomponents.LUT5
     );
 outside_display_area_i_5: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0000000000000001"
+      INIT => X"FFFFFFFFFFFFFFFE"
     )
         port map (
-      I0 => vsync_i_2_n_0,
-      I1 => vsync_i_8_n_0,
-      I2 => vsync_i_9_n_0,
-      I3 => vsync_i_10_n_0,
-      I4 => vsync_i_11_n_0,
-      I5 => vsync_i_7_n_0,
+      I0 => vertical_counter(12),
+      I1 => vertical_counter(13),
+      I2 => vertical_counter(14),
+      I3 => vertical_counter(15),
+      I4 => vertical_counter(11),
+      I5 => vertical_counter(10),
       O => outside_display_area_i_5_n_0
     );
 outside_display_area_reg: unisim.vcomponents.FDRE
@@ -2024,12 +1553,12 @@ outside_display_area_reg: unisim.vcomponents.FDRE
     );
 \vertical_counter[0]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFF04FF0000FF00"
+      INIT => X"FFFF80FF0000FF00"
     )
         port map (
-      I0 => vsync_i_4_n_0,
-      I1 => vsync_i_5_n_0,
-      I2 => vsync_i_6_n_0,
+      I0 => vsync_i_3_n_0,
+      I1 => vsync_i_4_n_0,
+      I2 => vsync_i_5_n_0,
       I3 => hsync_i_6_n_0,
       I4 => \vertical_counter[0]_i_2_n_0\,
       I5 => vertical_counter(0),
@@ -2037,310 +1566,73 @@ outside_display_area_reg: unisim.vcomponents.FDRE
     );
 \vertical_counter[0]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFFFFFFFFFE"
+      INIT => X"FFFFFFFFFFFFFEFF"
     )
         port map (
-      I0 => horizontal_counter(14),
-      I1 => horizontal_counter(13),
-      I2 => horizontal_counter(12),
-      I3 => horizontal_counter(15),
-      I4 => hsync_i_4_n_0,
-      I5 => hsync_i_5_n_0,
+      I0 => \vertical_counter[0]_i_3_n_0\,
+      I1 => hsync_i_3_n_0,
+      I2 => \vertical_counter[31]_i_5_n_0\,
+      I3 => horizontal_counter(8),
+      I4 => horizontal_counter(0),
+      I5 => \vertical_counter[31]_i_4_n_0\,
       O => \vertical_counter[0]_i_2_n_0\
     );
-\vertical_counter[12]_i_2\: unisim.vcomponents.LUT1
+\vertical_counter[0]_i_3\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"2"
+      INIT => X"FFF7"
     )
         port map (
-      I0 => vertical_counter(12),
-      O => \vertical_counter[12]_i_2_n_0\
-    );
-\vertical_counter[12]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => vertical_counter(11),
-      O => \vertical_counter[12]_i_3_n_0\
-    );
-\vertical_counter[12]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => vertical_counter(10),
-      O => \vertical_counter[12]_i_4_n_0\
-    );
-\vertical_counter[12]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => vertical_counter(9),
-      O => \vertical_counter[12]_i_5_n_0\
-    );
-\vertical_counter[16]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => vertical_counter(16),
-      O => \vertical_counter[16]_i_2_n_0\
-    );
-\vertical_counter[16]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => vertical_counter(15),
-      O => \vertical_counter[16]_i_3_n_0\
-    );
-\vertical_counter[16]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => vertical_counter(14),
-      O => \vertical_counter[16]_i_4_n_0\
-    );
-\vertical_counter[16]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => vertical_counter(13),
-      O => \vertical_counter[16]_i_5_n_0\
-    );
-\vertical_counter[20]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => vertical_counter(20),
-      O => \vertical_counter[20]_i_2_n_0\
-    );
-\vertical_counter[20]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => vertical_counter(19),
-      O => \vertical_counter[20]_i_3_n_0\
-    );
-\vertical_counter[20]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => vertical_counter(18),
-      O => \vertical_counter[20]_i_4_n_0\
-    );
-\vertical_counter[20]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => vertical_counter(17),
-      O => \vertical_counter[20]_i_5_n_0\
-    );
-\vertical_counter[24]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => vertical_counter(24),
-      O => \vertical_counter[24]_i_2_n_0\
-    );
-\vertical_counter[24]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => vertical_counter(23),
-      O => \vertical_counter[24]_i_3_n_0\
-    );
-\vertical_counter[24]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => vertical_counter(22),
-      O => \vertical_counter[24]_i_4_n_0\
-    );
-\vertical_counter[24]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => vertical_counter(21),
-      O => \vertical_counter[24]_i_5_n_0\
-    );
-\vertical_counter[28]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => vertical_counter(28),
-      O => \vertical_counter[28]_i_2_n_0\
-    );
-\vertical_counter[28]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => vertical_counter(27),
-      O => \vertical_counter[28]_i_3_n_0\
-    );
-\vertical_counter[28]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => vertical_counter(26),
-      O => \vertical_counter[28]_i_4_n_0\
-    );
-\vertical_counter[28]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => vertical_counter(25),
-      O => \vertical_counter[28]_i_5_n_0\
+      I0 => horizontal_counter(9),
+      I1 => horizontal_counter(5),
+      I2 => horizontal_counter(7),
+      I3 => horizontal_counter(6),
+      O => \vertical_counter[0]_i_3_n_0\
     );
 \vertical_counter[31]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0000000400000000"
+      INIT => X"8000000000000000"
     )
         port map (
-      I0 => vsync_i_4_n_0,
-      I1 => vsync_i_5_n_0,
-      I2 => vsync_i_6_n_0,
-      I3 => hsync_i_3_n_0,
-      I4 => \vertical_counter[31]_i_4_n_0\,
+      I0 => vsync_i_3_n_0,
+      I1 => vsync_i_4_n_0,
+      I2 => vsync_i_5_n_0,
+      I3 => hsync_i_4_n_0,
+      I4 => hsync_i_5_n_0,
       I5 => hsync_i_6_n_0,
       O => \vertical_counter[31]_i_1_n_0\
     );
-\vertical_counter[31]_i_2\: unisim.vcomponents.LUT4
+\vertical_counter[31]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0002"
+      INIT => X"0000020000000000"
     )
         port map (
       I0 => hsync_i_6_n_0,
-      I1 => hsync_i_5_n_0,
-      I2 => hsync_i_4_n_0,
-      I3 => hsync_i_3_n_0,
+      I1 => \vertical_counter[31]_i_4_n_0\,
+      I2 => horizontal_counter(0),
+      I3 => horizontal_counter(8),
+      I4 => \vertical_counter[31]_i_5_n_0\,
+      I5 => hsync_i_4_n_0,
       O => \vertical_counter[31]_i_2_n_0\
     );
-\vertical_counter[31]_i_4\: unisim.vcomponents.LUT6
+\vertical_counter[31]_i_4\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"FFFFFFFFFFFFFFFB"
+      INIT => X"FFFE"
     )
         port map (
-      I0 => hsync_i_5_n_0,
-      I1 => horizontal_counter(8),
-      I2 => horizontal_counter(6),
-      I3 => \vertical_counter[31]_i_8_n_0\,
-      I4 => horizontal_counter(0),
-      I5 => horizontal_counter(4),
+      I0 => horizontal_counter(11),
+      I1 => horizontal_counter(10),
+      I2 => horizontal_counter(1),
+      I3 => horizontal_counter(4),
       O => \vertical_counter[31]_i_4_n_0\
     );
-\vertical_counter[31]_i_5\: unisim.vcomponents.LUT1
+\vertical_counter[31]_i_5\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"2"
+      INIT => X"E"
     )
         port map (
-      I0 => vertical_counter(31),
+      I0 => horizontal_counter(3),
+      I1 => horizontal_counter(2),
       O => \vertical_counter[31]_i_5_n_0\
-    );
-\vertical_counter[31]_i_6\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => vertical_counter(30),
-      O => \vertical_counter[31]_i_6_n_0\
-    );
-\vertical_counter[31]_i_7\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => vertical_counter(29),
-      O => \vertical_counter[31]_i_7_n_0\
-    );
-\vertical_counter[31]_i_8\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"7"
-    )
-        port map (
-      I0 => horizontal_counter(5),
-      I1 => horizontal_counter(9),
-      O => \vertical_counter[31]_i_8_n_0\
-    );
-\vertical_counter[4]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => vertical_counter(4),
-      O => \vertical_counter[4]_i_2_n_0\
-    );
-\vertical_counter[4]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => vertical_counter(3),
-      O => \vertical_counter[4]_i_3_n_0\
-    );
-\vertical_counter[4]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => vertical_counter(2),
-      O => \vertical_counter[4]_i_4_n_0\
-    );
-\vertical_counter[4]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => vertical_counter(1),
-      O => \vertical_counter[4]_i_5_n_0\
-    );
-\vertical_counter[8]_i_2\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => vertical_counter(8),
-      O => \vertical_counter[8]_i_2_n_0\
-    );
-\vertical_counter[8]_i_3\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => vertical_counter(7),
-      O => \vertical_counter[8]_i_3_n_0\
-    );
-\vertical_counter[8]_i_4\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => vertical_counter(6),
-      O => \vertical_counter[8]_i_4_n_0\
-    );
-\vertical_counter[8]_i_5\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"2"
-    )
-        port map (
-      I0 => vertical_counter(5),
-      O => \vertical_counter[8]_i_5_n_0\
     );
 \vertical_counter_reg[0]\: unisim.vcomponents.FDRE
     generic map(
@@ -2399,10 +1691,7 @@ outside_display_area_reg: unisim.vcomponents.FDRE
       O(2) => \vertical_counter_reg[12]_i_1_n_5\,
       O(1) => \vertical_counter_reg[12]_i_1_n_6\,
       O(0) => \vertical_counter_reg[12]_i_1_n_7\,
-      S(3) => \vertical_counter[12]_i_2_n_0\,
-      S(2) => \vertical_counter[12]_i_3_n_0\,
-      S(1) => \vertical_counter[12]_i_4_n_0\,
-      S(0) => \vertical_counter[12]_i_5_n_0\
+      S(3 downto 0) => vertical_counter(12 downto 9)
     );
 \vertical_counter_reg[13]\: unisim.vcomponents.FDRE
     generic map(
@@ -2461,10 +1750,7 @@ outside_display_area_reg: unisim.vcomponents.FDRE
       O(2) => \vertical_counter_reg[16]_i_1_n_5\,
       O(1) => \vertical_counter_reg[16]_i_1_n_6\,
       O(0) => \vertical_counter_reg[16]_i_1_n_7\,
-      S(3) => \vertical_counter[16]_i_2_n_0\,
-      S(2) => \vertical_counter[16]_i_3_n_0\,
-      S(1) => \vertical_counter[16]_i_4_n_0\,
-      S(0) => \vertical_counter[16]_i_5_n_0\
+      S(3 downto 0) => vertical_counter(16 downto 13)
     );
 \vertical_counter_reg[17]\: unisim.vcomponents.FDRE
     generic map(
@@ -2534,10 +1820,7 @@ outside_display_area_reg: unisim.vcomponents.FDRE
       O(2) => \vertical_counter_reg[20]_i_1_n_5\,
       O(1) => \vertical_counter_reg[20]_i_1_n_6\,
       O(0) => \vertical_counter_reg[20]_i_1_n_7\,
-      S(3) => \vertical_counter[20]_i_2_n_0\,
-      S(2) => \vertical_counter[20]_i_3_n_0\,
-      S(1) => \vertical_counter[20]_i_4_n_0\,
-      S(0) => \vertical_counter[20]_i_5_n_0\
+      S(3 downto 0) => vertical_counter(20 downto 17)
     );
 \vertical_counter_reg[21]\: unisim.vcomponents.FDRE
     generic map(
@@ -2596,10 +1879,7 @@ outside_display_area_reg: unisim.vcomponents.FDRE
       O(2) => \vertical_counter_reg[24]_i_1_n_5\,
       O(1) => \vertical_counter_reg[24]_i_1_n_6\,
       O(0) => \vertical_counter_reg[24]_i_1_n_7\,
-      S(3) => \vertical_counter[24]_i_2_n_0\,
-      S(2) => \vertical_counter[24]_i_3_n_0\,
-      S(1) => \vertical_counter[24]_i_4_n_0\,
-      S(0) => \vertical_counter[24]_i_5_n_0\
+      S(3 downto 0) => vertical_counter(24 downto 21)
     );
 \vertical_counter_reg[25]\: unisim.vcomponents.FDRE
     generic map(
@@ -2658,10 +1938,7 @@ outside_display_area_reg: unisim.vcomponents.FDRE
       O(2) => \vertical_counter_reg[28]_i_1_n_5\,
       O(1) => \vertical_counter_reg[28]_i_1_n_6\,
       O(0) => \vertical_counter_reg[28]_i_1_n_7\,
-      S(3) => \vertical_counter[28]_i_2_n_0\,
-      S(2) => \vertical_counter[28]_i_3_n_0\,
-      S(1) => \vertical_counter[28]_i_4_n_0\,
-      S(0) => \vertical_counter[28]_i_5_n_0\
+      S(3 downto 0) => vertical_counter(28 downto 25)
     );
 \vertical_counter_reg[29]\: unisim.vcomponents.FDRE
     generic map(
@@ -2720,9 +1997,7 @@ outside_display_area_reg: unisim.vcomponents.FDRE
       O(1) => \vertical_counter_reg[31]_i_3_n_6\,
       O(0) => \vertical_counter_reg[31]_i_3_n_7\,
       S(3) => '0',
-      S(2) => \vertical_counter[31]_i_5_n_0\,
-      S(1) => \vertical_counter[31]_i_6_n_0\,
-      S(0) => \vertical_counter[31]_i_7_n_0\
+      S(2 downto 0) => vertical_counter(31 downto 29)
     );
 \vertical_counter_reg[3]\: unisim.vcomponents.FDRE
     generic map(
@@ -2759,10 +2034,7 @@ outside_display_area_reg: unisim.vcomponents.FDRE
       O(2) => \vertical_counter_reg[4]_i_1_n_5\,
       O(1) => \vertical_counter_reg[4]_i_1_n_6\,
       O(0) => \vertical_counter_reg[4]_i_1_n_7\,
-      S(3) => \vertical_counter[4]_i_2_n_0\,
-      S(2) => \vertical_counter[4]_i_3_n_0\,
-      S(1) => \vertical_counter[4]_i_4_n_0\,
-      S(0) => \vertical_counter[4]_i_5_n_0\
+      S(3 downto 0) => vertical_counter(4 downto 1)
     );
 \vertical_counter_reg[5]\: unisim.vcomponents.FDRE
     generic map(
@@ -2821,10 +2093,7 @@ outside_display_area_reg: unisim.vcomponents.FDRE
       O(2) => \vertical_counter_reg[8]_i_1_n_5\,
       O(1) => \vertical_counter_reg[8]_i_1_n_6\,
       O(0) => \vertical_counter_reg[8]_i_1_n_7\,
-      S(3) => \vertical_counter[8]_i_2_n_0\,
-      S(2) => \vertical_counter[8]_i_3_n_0\,
-      S(1) => \vertical_counter[8]_i_4_n_0\,
-      S(0) => \vertical_counter[8]_i_5_n_0\
+      S(3 downto 0) => vertical_counter(8 downto 5)
     );
 \vertical_counter_reg[9]\: unisim.vcomponents.FDRE
     generic map(
@@ -2837,132 +2106,19 @@ outside_display_area_reg: unisim.vcomponents.FDRE
       Q => vertical_counter(9),
       R => \vertical_counter[31]_i_1_n_0\
     );
-vsync_i_1: unisim.vcomponents.LUT6
+vsync_i_1: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"F0E0F0F0F0FFF0F0"
+      INIT => X"FC4CCCCC"
     )
         port map (
       I0 => vsync_i_2_n_0,
-      I1 => vsync_i_3_n_0,
-      I2 => \^vsync\,
+      I1 => \^vsync\,
+      I2 => vsync_i_3_n_0,
       I3 => vsync_i_4_n_0,
       I4 => vsync_i_5_n_0,
-      I5 => vsync_i_6_n_0,
       O => vsync_i_1_n_0
     );
 vsync_i_10: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"FFFE"
-    )
-        port map (
-      I0 => vertical_counter(29),
-      I1 => vertical_counter(28),
-      I2 => vertical_counter(30),
-      I3 => vertical_counter(31),
-      O => vsync_i_10_n_0
-    );
-vsync_i_11: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"FFFE"
-    )
-        port map (
-      I0 => vertical_counter(25),
-      I1 => vertical_counter(24),
-      I2 => vertical_counter(27),
-      I3 => vertical_counter(26),
-      O => vsync_i_11_n_0
-    );
-vsync_i_12: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"FFFE"
-    )
-        port map (
-      I0 => vertical_counter(11),
-      I1 => vertical_counter(10),
-      I2 => vertical_counter(8),
-      I3 => vertical_counter(1),
-      O => vsync_i_12_n_0
-    );
-vsync_i_2: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"E"
-    )
-        port map (
-      I0 => vertical_counter(10),
-      I1 => vertical_counter(11),
-      O => vsync_i_2_n_0
-    );
-vsync_i_3: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"FFFFFFFEFFFFFFFF"
-    )
-        port map (
-      I0 => vertical_counter(8),
-      I1 => vertical_counter(9),
-      I2 => vertical_counter(3),
-      I3 => vertical_counter(2),
-      I4 => vertical_counter(0),
-      I5 => vertical_counter(1),
-      O => vsync_i_3_n_0
-    );
-vsync_i_4: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"FFFFFFFE"
-    )
-        port map (
-      I0 => vertical_counter(6),
-      I1 => vertical_counter(7),
-      I2 => vertical_counter(5),
-      I3 => vsync_i_7_n_0,
-      I4 => vertical_counter(4),
-      O => vsync_i_4_n_0
-    );
-vsync_i_5: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"0001"
-    )
-        port map (
-      I0 => vsync_i_8_n_0,
-      I1 => vsync_i_9_n_0,
-      I2 => vsync_i_10_n_0,
-      I3 => vsync_i_11_n_0,
-      O => vsync_i_5_n_0
-    );
-vsync_i_6: unisim.vcomponents.LUT5
-    generic map(
-      INIT => X"FFFFF7FF"
-    )
-        port map (
-      I0 => vertical_counter(0),
-      I1 => vertical_counter(9),
-      I2 => vertical_counter(2),
-      I3 => vertical_counter(3),
-      I4 => vsync_i_12_n_0,
-      O => vsync_i_6_n_0
-    );
-vsync_i_7: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"FFFE"
-    )
-        port map (
-      I0 => vertical_counter(15),
-      I1 => vertical_counter(14),
-      I2 => vertical_counter(13),
-      I3 => vertical_counter(12),
-      O => vsync_i_7_n_0
-    );
-vsync_i_8: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"FFFE"
-    )
-        port map (
-      I0 => vertical_counter(17),
-      I1 => vertical_counter(16),
-      I2 => vertical_counter(19),
-      I3 => vertical_counter(18),
-      O => vsync_i_8_n_0
-    );
-vsync_i_9: unisim.vcomponents.LUT4
     generic map(
       INIT => X"FFFE"
     )
@@ -2971,6 +2127,127 @@ vsync_i_9: unisim.vcomponents.LUT4
       I1 => vertical_counter(22),
       I2 => vertical_counter(21),
       I3 => vertical_counter(20),
+      O => vsync_i_10_n_0
+    );
+vsync_i_11: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"0001"
+    )
+        port map (
+      I0 => vertical_counter(19),
+      I1 => vertical_counter(18),
+      I2 => vertical_counter(17),
+      I3 => vertical_counter(16),
+      O => vsync_i_11_n_0
+    );
+vsync_i_12: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"FFFE"
+    )
+        port map (
+      I0 => vertical_counter(25),
+      I1 => vertical_counter(24),
+      I2 => vertical_counter(27),
+      I3 => vertical_counter(26),
+      O => vsync_i_12_n_0
+    );
+vsync_i_13: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"FFFE"
+    )
+        port map (
+      I0 => vertical_counter(29),
+      I1 => vertical_counter(28),
+      I2 => vertical_counter(30),
+      I3 => vertical_counter(31),
+      O => vsync_i_13_n_0
+    );
+vsync_i_2: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"0000000000000100"
+    )
+        port map (
+      I0 => vertical_counter(3),
+      I1 => vertical_counter(2),
+      I2 => vertical_counter(0),
+      I3 => vertical_counter(1),
+      I4 => vsync_i_6_n_0,
+      I5 => vsync_i_7_n_0,
+      O => vsync_i_2_n_0
+    );
+vsync_i_3: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00000001"
+    )
+        port map (
+      I0 => vertical_counter(6),
+      I1 => vertical_counter(7),
+      I2 => vertical_counter(5),
+      I3 => vsync_i_8_n_0,
+      I4 => vertical_counter(4),
+      O => vsync_i_3_n_0
+    );
+vsync_i_4: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"00004000"
+    )
+        port map (
+      I0 => vertical_counter(2),
+      I1 => vertical_counter(3),
+      I2 => vertical_counter(0),
+      I3 => vertical_counter(9),
+      I4 => vsync_i_9_n_0,
+      O => vsync_i_4_n_0
+    );
+vsync_i_5: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"0004"
+    )
+        port map (
+      I0 => vsync_i_10_n_0,
+      I1 => vsync_i_11_n_0,
+      I2 => vsync_i_12_n_0,
+      I3 => vsync_i_13_n_0,
+      O => vsync_i_5_n_0
+    );
+vsync_i_6: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"E"
+    )
+        port map (
+      I0 => vertical_counter(9),
+      I1 => vertical_counter(8),
+      O => vsync_i_6_n_0
+    );
+vsync_i_7: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"E"
+    )
+        port map (
+      I0 => vertical_counter(10),
+      I1 => vertical_counter(11),
+      O => vsync_i_7_n_0
+    );
+vsync_i_8: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"FFFE"
+    )
+        port map (
+      I0 => vertical_counter(15),
+      I1 => vertical_counter(14),
+      I2 => vertical_counter(13),
+      I3 => vertical_counter(12),
+      O => vsync_i_8_n_0
+    );
+vsync_i_9: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"FFFE"
+    )
+        port map (
+      I0 => vertical_counter(11),
+      I1 => vertical_counter(10),
+      I2 => vertical_counter(8),
+      I3 => vertical_counter(1),
       O => vsync_i_9_n_0
     );
 vsync_reg: unisim.vcomponents.FDRE
@@ -3004,14 +2281,20 @@ entity VGA_project_VGA_output_0_0 is
   attribute CHECK_LICENSE_TYPE of VGA_project_VGA_output_0_0 : entity is "VGA_project_VGA_output_0_0,VGA_output,{}";
   attribute DowngradeIPIdentifiedWarnings : string;
   attribute DowngradeIPIdentifiedWarnings of VGA_project_VGA_output_0_0 : entity is "yes";
+  attribute IP_DEFINITION_SOURCE : string;
+  attribute IP_DEFINITION_SOURCE of VGA_project_VGA_output_0_0 : entity is "module_ref";
   attribute X_CORE_INFO : string;
-  attribute X_CORE_INFO of VGA_project_VGA_output_0_0 : entity is "VGA_output,Vivado 2017.2";
+  attribute X_CORE_INFO of VGA_project_VGA_output_0_0 : entity is "VGA_output,Vivado 2018.2";
 end VGA_project_VGA_output_0_0;
 
 architecture STRUCTURE of VGA_project_VGA_output_0_0 is
   signal \^blue\ : STD_LOGIC_VECTOR ( 2 downto 1 );
   signal \^green\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \^red\ : STD_LOGIC_VECTOR ( 2 downto 1 );
+  attribute X_INTERFACE_INFO : string;
+  attribute X_INTERFACE_INFO of pixel_clk : signal is "xilinx.com:signal:clock:1.0 pixel_clk CLK";
+  attribute X_INTERFACE_PARAMETER : string;
+  attribute X_INTERFACE_PARAMETER of pixel_clk : signal is "XIL_INTERFACENAME pixel_clk, FREQ_HZ 25000000, PHASE 0.0, CLK_DOMAIN VGA_project_clk_in1";
 begin
   blue(4 downto 3) <= \^blue\(2 downto 1);
   blue(2 downto 1) <= \^blue\(2 downto 1);

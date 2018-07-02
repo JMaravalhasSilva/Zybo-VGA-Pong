@@ -79,6 +79,8 @@ wire clk_in2_VGA_project_clk_wiz_0_0;
   assign clk_in1_VGA_project_clk_wiz_0_0 = clk_in1;
 
 
+
+
   // Clocking PRIMITIVE
   //------------------------------------
 
@@ -158,6 +160,9 @@ wire clk_in2_VGA_project_clk_wiz_0_0;
   BUFG clkf_buf
    (.O (clkfbout_buf_VGA_project_clk_wiz_0_0),
     .I (clkfbout_VGA_project_clk_wiz_0_0));
+
+
+
 
 
 
